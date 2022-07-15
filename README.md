@@ -40,9 +40,5 @@ cloned version of Pehchaan github repo
 
 Syntax:- `python FaceRecognizer.py target_image_path database_path face_detector_model face_recognizer_model distance_metric`
 
-EX:- ```python FaceRecognizer.py ./dataset/kalam/1.jpg ./dataset mtcnn VGG-Face euclidean```
-
-                                    OR
- 
-      ```python FaceRecognizer.py ./dataset/kalam/1.jpg ./dataset``` as by default, "retinaface" is used as detector and "ArcFace" as recognizer and    
+EX:- `python FaceRecognizer.py ./dataset/kalam/1.jpg ./dataset mtcnn VGG-Face euclidean` OR  `python FaceRecognizer.py ./dataset/kalam/1.jpg ./dataset` as by default, "retinaface" is used as detector and "ArcFace" as recognizer and    
        "euclidean" as distance metric
