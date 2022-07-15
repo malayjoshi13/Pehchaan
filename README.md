@@ -60,3 +60,8 @@ Ex:- `python FaceVerifier.py ./dataset/kalam/1.jpg ./dataset/kalam/hi.jpeg mtcnn
 Syntax:- `python FaceDetector.py ./dataset/kalam/1.jpg face_detector_model`
 
 Ex:- `python FaceDetector.py target_image_path mtcnn` OR `python FaceDetector.py ./dataset/kalam/1.jpg` as by default it has "retinaface"
+
+## Options to choose from
+
+1) For `face_detector_model`:- opencvhaar, opencvdnn, dlib, mtcnn, retinaface, mediapipe
+2) For `face_recognizer_model`:- VGG-Face, Facenet, Facenet512, OpenFace, DeepFace, DeepID, ArcFace, SFace
