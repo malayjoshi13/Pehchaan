@@ -5,11 +5,11 @@ Face recognizer system
 
 - Create a virtual environment named "drdo" (only once):
 
-  `conda create -n drdo`
+  `conda create -n pehchaan`
 
 - Activate the virtual environment each time:
 
-  `conda activate drdo`
+  `conda activate pehchaan`
 
 - Install dependencies (only once):
 
