@@ -41,15 +41,21 @@ You can anytime add/delete images in the database, the representation files will
 
 Syntax:- `python FaceRecognizer.py target_image_path database_path face_detector_model face_recognizer_model distance_metric`
 
-Ex:- `python FaceRecognizer.py ./dataset/kalam/1.jpg ./dataset mtcnn VGG-Face euclidean` OR  `python FaceRecognizer.py ./dataset/kalam/1.jpg ./dataset`         as by default, "retinaface" is used as detector and "ArcFace" as recognizer and "euclidean" as distance metric
+Behind the hood: applies SimilarFaceFinder algorithm in 1:N format input image and each image of database. Whichever database image outputs to be similar to input image, its label is considered to be identity of the input image. In case where multiple database images are found to be similar to input image, in such case label with maximum occurence is considered as label of the input image.
+
+Ex:- `python FaceRecognizer.py ./dataset/kalam/1.jpg ./dataset mtcnn VGG-Face euclidean` OR  `python FaceRecognizer.py ./dataset/kalam/1.jpg ./dataset` as by default, "retinaface" is used as detector and "ArcFace" as recognizer and "euclidean" as distance metric
 
 2) SimilarFaceFinder:- for finding all faces (present in the database) which look similar to target face input to the system
+
+Behind the hood: applies FaceVerifier algorithm in 1:N format between input image and each database image to check distance between feature vectors of which database image and input image is less than the threshold value. Featured vector of whichever database image satisfy this condition is considered similar to the input image.
 
 Syntax:- `python SimilarFaceFinder.py target_image_path database_path face_detector_model face_recognizer_model distance_metric`
 
 Ex:- `python SimilarFaceFinder.py ./dataset/kalam/1.jpg ./dataset mtcnn VGG-Face euclidean` OR `python SimilarFaceFinder.py ./dataset/kalam/1.jpg ./dataset` as by default, "retinaface" is used as detector and "ArcFace" as recognizer and "euclidean" as distance_metric
 
-3) FaceVerifier:- for verifying if two input images different or same
+3) FaceVerifier:- for verifying if two input images different or same.
+
+Behind the hood: do 1:1 checking to find how close feature vectors of two input images are.
 
 Syntax:- `python SimilarFaceFinder.py target_image1_path target_image2_path face_detector_model face_recognizer_model distance_metric`
 
