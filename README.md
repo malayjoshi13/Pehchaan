@@ -1,7 +1,7 @@
 # Pehchaan
 Face recognizer system
 
-1) ## Install
+## 1) Install
 
 - Create a virtual environment named "pehchaan" (only once):
 
@@ -17,7 +17,7 @@ Face recognizer system
 
   `pip install -r requirements.txt`
   
-2) ## Folder structure
+## 2) Folder structure
 
 After cloning this GitHub repository, setup the database inside `dataset` folder by taking reference of following folder structure
 ```
@@ -35,7 +35,7 @@ cloned version of Pehchaan github repo
 ```
 You can anytime add/delete images in the database, the representation files will be made automatically for `FaceRecognizer` task
 
-3) ## Execution
+## 3) Execution
 
 ## 3.1) FaceRecognizer:-
  for identifying name of person (whose image is feeded as an input) out of the database (i.e. `dataset` folder)
