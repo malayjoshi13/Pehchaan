@@ -73,13 +73,28 @@ Ex:- `python FaceDetector.py target_image_path mtcnn` OR `python FaceDetector.py
 
 ## 4) Options to choose from
 
-1) For `face_detector_model`:- opencvhaar, opencvdnn, dlib, mtcnn, retinaface, mediapipe
-2) For `face_recognizer_model`:- VGG-Face, Facenet, Facenet512, OpenFace, DeepFace, DeepID, ArcFace, SFace
+4.1) For `face_detector_model`:- opencvhaar, opencvdnn, dlib, mtcnn, retinaface, mediapipe
+4.2) For `face_recognizer_model`:- VGG-Face, Facenet, Facenet512, OpenFace, DeepFace, DeepID, ArcFace, SFace
 
 ## 5) Use cases
 
-1) auto-tagging individual(s) out of image(s),
-2) tracking shoppers in cashierless shops/stores
-3) tracking movement of a specific criminal/suspect/individual
-4) smart attendance/check-in/entry in event/office/college/home/school
-5) biometric/phone/system authentication, etc
+5.1) auto-tagging individual(s) out of image(s),
+5.2) tracking shoppers in cashierless shops/stores
+5.3) tracking movement of a specific criminal/suspect/individual
+5.4) smart attendance/check-in/entry in event/office/college/home/school
+5.5) biometric/phone/system authentication, etc
+
+## 6) Working on
+
+6.1) adding varying illumination robustness on top of face detection and recognition/identification pipeline by training on NIR images dataset (like https://www4.comp.polyu.edu.hk/~csajaykr/IITD/FaceIR.htm)
+ 
+6.2) adding varying poses and face orientations robustness to existing pipeline by use of face alignment algorithm or by use of GANs for transfering features of posed input face to a straight reference face 
+
+6.3) adding face-occlusion (face mask, veil, etc) robustness to existing pipeline by discriminative learning based on eyes feature vector 
+
+6.4) image quality enhancement to make pipeline independent on camera quality 
+
+6.5) making pipeline more scalable by performing comparison between feature vectors of input and database images in 1 image : N groups format and not in 1 image : 1 image format. This will save extra time spent by not comparing input image to database images of a particular group whose centroid feature vector is at a very large distance. 
+
+6.6) restructuring model structure to include required Fully Connected layers which have demonstrated better understanding of minute differences between face features. Also including required cost functions that can help in discriminative learning by increasing difference between non-similar classes.
+
