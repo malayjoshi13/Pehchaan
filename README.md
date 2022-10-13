@@ -1,5 +1,5 @@
 # Pehchaan
-Face recognizer system
+Face detection, verification and recognition system
 
 ## 1) Install
 
@@ -75,3 +75,11 @@ Ex:- `python FaceDetector.py target_image_path mtcnn` OR `python FaceDetector.py
 
 1) For `face_detector_model`:- opencvhaar, opencvdnn, dlib, mtcnn, retinaface, mediapipe
 2) For `face_recognizer_model`:- VGG-Face, Facenet, Facenet512, OpenFace, DeepFace, DeepID, ArcFace, SFace
+
+## 5) Use cases
+
+1) auto-tagging individual(s) out of image(s),
+2) tracking shoppers in cashierless shops/stores
+3) tracking movement of a specific criminal/suspect/individual
+4) smart attendance/check-in/entry in event/office/college/home/school
+5) biometric/phone/system authentication, etc
