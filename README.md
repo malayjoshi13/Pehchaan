@@ -92,7 +92,7 @@ Ex:- `python FaceDetector.py target_image_path mtcnn` OR `python FaceDetector.py
 
 6.3) adding face-occlusion (face mask, veil, etc) robustness to existing pipeline by discriminative learning based on eyes feature vector (like https://scholar.google.co.in/citations?view_op=view_citation&hl=en&user=4crRvSMAAAAJ&citation_for_view=4crRvSMAAAAJ:Tyk-4Ss8FVUC)
 
-6.4) image quality enhancement to make pipeline independent on camera quality 
+6.4) image quality enhancement to make pipeline independent on camera quality (like https://publications.iitm.ac.in/publication/dp-gan-dual-pathway-generative-adversarial-network-for-face)
 
 6.5) making pipeline more scalable by performing comparison between feature vectors of input and database images in 1 image : N groups format and not in 1 image : 1 image format. This will save extra time spent by not comparing input image to database images of a particular group whose centroid feature vector is at a very large distance. 
 
