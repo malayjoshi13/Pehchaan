@@ -90,7 +90,7 @@ Ex:- `python FaceDetector.py target_image_path mtcnn` OR `python FaceDetector.py
  
 6.2) adding varying poses and face orientations robustness to existing pipeline by use of face alignment algorithm or by use of GANs for transfering features of posed input face to a straight reference face 
 
-6.3) adding face-occlusion (face mask, veil, etc) robustness to existing pipeline by discriminative learning based on eyes feature vector 
+6.3) adding face-occlusion (face mask, veil, etc) robustness to existing pipeline by discriminative learning based on eyes feature vector (like https://scholar.google.co.in/citations?view_op=view_citation&hl=en&user=4crRvSMAAAAJ&citation_for_view=4crRvSMAAAAJ:Tyk-4Ss8FVUC)
 
 6.4) image quality enhancement to make pipeline independent on camera quality 
 
