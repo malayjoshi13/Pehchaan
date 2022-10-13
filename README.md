@@ -1,5 +1,5 @@
 # Pehchaan
-Face detection, verification and recognition system
+Face detection, verification and recognition/identification system
 
 ## 1) Install
 
