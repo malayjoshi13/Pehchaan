@@ -91,7 +91,7 @@ Ex:- `python FaceDetector.py target_image_path mtcnn` OR `python FaceDetector.py
 
 ## 6) Working on
 
-6.1) Understanding and conducting comparative analysis between following algos https://github.com/malayjoshi13/face_recognition_detection_research/blob/main/Research%20papers.md
+6.1) Understanding and conducting comparative analysis between following algos https://github.com/malayjoshi13/face_detection_and_recognition_algos
 
 6.2) adding varying illumination robustness on top of face detection and recognition/identification pipeline by training on NIR images dataset (like https://www4.comp.polyu.edu.hk/~csajaykr/IITD/FaceIR.htm)
  
