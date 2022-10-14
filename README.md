@@ -79,7 +79,7 @@ Ex:- `python FaceDetector.py target_image_path mtcnn` OR `python FaceDetector.py
 
 ## 5) Use cases
 
-5.1) auto-tagging individual(s) out of image(s)
+5.1) auto-tagging individual(s) out of image(s). Developing a database with different folders having images of different peoples. Now we will use this database to auto-tag people in photos like image A has Ram, Shyam and Sita. But how? For suppose this image A enters into Pehchaan, then first face(s) are detected in image A --> then face alignment --> then face embedding --> then comparison with face embeddings of database images using SVM or cosine distance.
 
 5.2) tracking shoppers in cashierless shops/stores
 
