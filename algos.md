@@ -50,7 +50,7 @@ The only place I tend not to use dlib’s CNN face detector is when I’m using 
 
 [13] Tiny Face Detector [Task](face detection) [Article+code+paper](https://medium.com/analytics-vidhya/exploring-other-face-detection-approaches-part-4-tiny-face-684c8cba5b01)
 
-[14] For face alignment [https://arxiv.org/pdf/1703.07332.pdf, https://github.com/1adrianb/face-alignment] and [https://pyimagesearch.com/2017/05/22/face-alignment-with-opencv-and-python/] and [https://rajathithanrajasekar.medium.com/opencv-series-6-face-alignment-4a2779b6070d]
+[14] For face alignment [https://arxiv.org/pdf/1703.07332.pdf, https://github.com/1adrianb/face-alignment] and [https://pyimagesearch.com/2017/05/22/face-alignment-with-opencv-and-python/] and [https://rajathithanrajasekar.medium.com/opencv-series-6-face-alignment-4a2779b6070d] and [https://gist.github.com/ageitgey/ae340db3e493530d5e1f9c15292e5c74, https://gist.github.com/ageitgey/82d0ea0fdb56dc93cb9b716e7ceb364b]
 
 [15] VGG-Face [Task](face recognition) [Article](https://sefiks.com/2018/08/06/deep-face-recognition-with-keras/)
 
