@@ -81,5 +81,15 @@ But one interesting problem can rise due to generating embedding of eaach image 
 
 Thus one very good approach is to actually overlap embeddings of every person at a single place. This way we will get, one embediing = one person. 
 
+But how to generate these embedings?
 
+One way is to instead of training the network to recognize objects, we are going to train it to generate 128 measurements for each face. This will be done by **triplet training**. What happens in this technique is the algorithm looks at the embeddings it is currently generating for each of three images (two images of target person and one image of totally different image, thus one will be called training image, another as positive image and third as negative image). It then tweaks the neural network slightly so that it makes sure the measurements it generates for training image and positive image are slightly closer, while making sure that the measurements for training image and negative image are slightly further apart.
+
+![image](https://user-images.githubusercontent.com/71775151/195927308-8f39092e-9e1e-4e30-bdf3-787e168fb4c0.png)
+
+After repeating this step millions of times for millions of images of thousands of different people, the neural network learns to reliably generate 128 measurements for each person.
+
+But tthis process of training a convolutional neural network to output face embeddings requires a lot of data and computer power. But once the network has been trained, it can generate measurements for any face, even ones it has never seen before! So this step only needs to be done once.
+
+Lucky for us, the OpenFace has already traineed such model which we can directly use. So all we need to do ourselves is run our face images through these pre-trained network to get the 128 measurements for each face. This is the second way to use pre-trained networks for generating embeddings.
 
