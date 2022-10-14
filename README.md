@@ -74,14 +74,19 @@ Ex:- `python FaceDetector.py target_image_path mtcnn` OR `python FaceDetector.py
 ## 4) Options to choose from
 
 4.1) For `face_detector_model`:- opencvhaar, opencvdnn, dlib, mtcnn, retinaface, mediapipe
+
 4.2) For `face_recognizer_model`:- VGG-Face, Facenet, Facenet512, OpenFace, DeepFace, DeepID, ArcFace, SFace
 
 ## 5) Use cases
 
-5.1) auto-tagging individual(s) out of image(s),
+5.1) auto-tagging individual(s) out of image(s)
+
 5.2) tracking shoppers in cashierless shops/stores
+
 5.3) tracking movement of a specific criminal/suspect/individual
+
 5.4) smart attendance/check-in/entry in event/office/college/home/school
+
 5.5) biometric/phone/system authentication, etc
 
 ## 6) Working on
