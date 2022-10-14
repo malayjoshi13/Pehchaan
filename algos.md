@@ -60,4 +60,21 @@ The only place I tend not to use dlib’s CNN face detector is when I’m using 
 
 [18] DeepID [Task](face recognition) [Article](https://sefiks.com/2020/06/16/face-recognition-with-deepid-in-keras/)
 
-[19] Histogram of Oriented Gradients [Task](face detection)
+[19] Histogram of Oriented Gradients [Task](face detection) 
+
+To find faces in an image, we’ll start by making our image black and white because we don’t need color data to find faces. Then we’ll look at every single pixel in our image one at a time. For every single pixel, we want to look at the pixels that directly surrounding it. Our goal is to figure out how dark the current pixel is compared to the pixels directly surrounding it. Then we want to draw an arrow showing in which direction the image is getting darker. If you repeat that process for every single pixel in the image, you end up with every pixel being replaced by an arrow. These arrows are called gradients and they show the flow from light to dark across the entire image.
+
+If we analyze pixels directly, really dark images and really light images of the same person will have totally different pixel values. But by only considering the direction that brightness changes, both really dark images and really bright images will end up with the same exact representation. That makes the problem a lot easier to solve.
+
+But saving the gradient for every single pixel gives us way too much detail. It will be a very large information. Thus instead of working at pixel level, we’ll break up the image into small squares of 16x16 pixels each. In each square, we’ll count up how many gradients point in each major direction (how many point up, point up-right, point right, etc…). Then we’ll replace that square in the image with the arrow directions that were the strongest. The end result is we turn the original image into a very simple representation that captures the basic structure of a face in a simple way.
+
+Running HOG across many images of different person and then overlapping all the HOGs one over other will give us a final HOG.
+![image](https://user-images.githubusercontent.com/71775151/195912992-b3e6b175-4858-482b-aa0a-5c694325be22.png)
+
+Now, given any input image, we will use this HOG and find that out of all whole input image where the face is located coz region of input image having face will have HOG pattern similar to ours reference HOG pattern of face. Thus using this technique we can now easily find faces in any image.
+![image](https://user-images.githubusercontent.com/71775151/195915459-36336655-c2be-4cda-8e74-6bed9d76d886.png)
+
+
+
+
+
