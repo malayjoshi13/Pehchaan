@@ -26,14 +26,20 @@ Cons: More accurate than Haar cascades and HOG + Linear SVM, but not as accurate
 
 My recommendation: OpenCV’s deep learning face detector is your best “all-around” detector. It’s very simple to use, doesn’t require additional libraries, and relies on OpenCV’s cv2.dnn module, which is baked into the OpenCV library. Perhaps the biggest downside of this model is that I’ve found that the face detections on darker-skinned people aren’t as accurate as lighter-skinned people. That’s not necessarily a problem with the model itself but rather the data it was trained on — to remedy that problem, I suggest training/fine-tune the face detector on a more diverse set of ethnicities.)
 
-[7] Dlib [Task](face detection and reconition) [Article](https://pyimagesearch.com/2021/04/19/face-detection-with-dlib-hog-and-cnn/, https://sefiks.com/2020/07/11/face-recognition-with-dlib-in-python/, https://sefiks.com/2020/07/11/face-recognition-with-dlib-in-python/) [Note] (Dlib HOG Pros: More accurate than Haar cascades, More stable detection than Haar cascades (i.e., fewer parameters to tune), Expertly implemented by dlib creator and maintainer, Davis King, Extremely well documented, both in terms of the dlib implementation and the HOG + Linear SVM framework in the computer vision literature
+[7] Dlib [Task](face detection and reconition) [Article](https://pyimagesearch.com/2021/04/19/face-detection-with-dlib-hog-and-cnn/, https://sefiks.com/2020/07/11/face-recognition-with-dlib-in-python/, https://sefiks.com/2020/07/11/face-recognition-with-dlib-in-python/) 
+
+[7.1] Dlib HOG 
+
+Pros: More accurate than Haar cascades, More stable detection than Haar cascades (i.e., fewer parameters to tune), Expertly implemented by dlib creator and maintainer, Davis King, Extremely well documented, both in terms of the dlib implementation and the HOG + Linear SVM framework in the computer vision literature
 
 Cons: Only works on frontal views of the face — profile faces will not be detected as the HOG descriptor does not tolerate changes in rotation or viewing angle well, Requires an additional library (dlib) be installed — not necessarily a problem per se, but if you’re using just OpenCV, then you may find adding another library into the mix cumbersome, Not as accurate as deep learning-based face detectors
 For the accuracy, it’s actually quite computationally expensive due to image pyramid construction, sliding windows, and computing HOG features at every stop of the window
 
 My recommendation: HOG + Linear SVM is a classic object detection algorithm that every computer vision practitioner should understand. That said, for the accuracy HOG + Linear SVM gives you, the algorithm itself is quite slow, especially when you compare it to OpenCV’s SSD face detector. I tend to use HOG + Linear SVM in places where Haar cascades aren’t accurate enough, but I cannot commit to using OpenCV’s deep learning face detector.)
 
-(Dlib CNN Pros: Davis King, the creator of dlib, trained a CNN face detector based on his work on max-margin object detection, Incredibly accurate face detector, Small model size (under 1MB), Expertly implemented and documented
+[7.2] Dlib CNN 
+
+Pros: Davis King, the creator of dlib, trained a CNN face detector based on his work on max-margin object detection, Incredibly accurate face detector, Small model size (under 1MB), Expertly implemented and documented
 
 Cons: Requires an additional library (dlib) be installed, Code is more verbose — end-user must take care to convert and trim bounding box coordinates if using OpenCV, Cannot run in real-time without GPU acceleration.
 
