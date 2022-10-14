@@ -75,7 +75,11 @@ Now, given any input image, we will use this HOG and find that out of all whole 
 
 ![image](https://user-images.githubusercontent.com/71775151/195915459-36336655-c2be-4cda-8e74-6bed9d76d886.png) 
 
+[20] Generating face embeddings: one by one matching of face features of input image with every database image is very time consuming process as there are many features like eyes, nose, ears, etc which needs to be compared between two images. Thus instead of doing this we need an embedding that can represent all possible features of a face in form of collective numerical format. Then when needed to compare any two faces, there embeddings which are basically a vector or say some sort of number can be easily compared by mesauring distance between them. Lesser distance means both images are similar to each other.
 
+But one interesting problem can rise due to generating embedding of eaach image in the database and then to compare them with embedding of input image to see which database image is close to input image. And the problem is that, although comparing two face embeddings takes lesser time than comparing the actual parent images, but still doing this thing between input image's embedding and all database images' embeddings will still be time consuuming when you are working at level of large database of images.
+
+Thus one very good approach is to actually overlap embeddings of every person at a single place. This way we will get, one embediing = one person. 
 
 
 
