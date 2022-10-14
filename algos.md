@@ -8,14 +8,16 @@
 
 [5] Face Recognition [Task](face recognition & detection) [Code](https://github.com/ageitgey/face_recognition#face-recognition) [Note](no research backing, but amazing code based on Dlib....simplified version of OpenFace as told this things in this article https://medium.com/@ageitgey/machine-learning-is-fun-part-4-modern-face-recognition-with-deep-learning-c3cffc121d78#.ds8i8oic9)
 
-[6] OpenCV a) Haarcascade [Task](face detection) [Article](https://towardsdatascience.com/face-detection-in-2-minutes-using-opencv-python-90f89d7c0f81 , https://pyimagesearch.com/2021/04/05/opencv-face-detection-with-haar-cascades/, https://machinelearningmastery.com/how-to-perform-face-detection-with-classical-and-deep-learning-methods-in-python-with-keras/) [Note](Pros: Very fast, capable of running in super real-time
+[6] OpenCV 
+
+[6.1] Haarcascade [Task](face detection) [Article](https://towardsdatascience.com/face-detection-in-2-minutes-using-opencv-python-90f89d7c0f81 , https://pyimagesearch.com/2021/04/05/opencv-face-detection-with-haar-cascades/, https://machinelearningmastery.com/how-to-perform-face-detection-with-classical-and-deep-learning-methods-in-python-with-keras/) [Note](Pros: Very fast, capable of running in super real-time
 Low computational requirements — can easily be run on embedded, resource-constrained devices such as the Raspberry Pi (RPi), NVIDIA Jetson Nano, and Google Coral, Small model size (just over 400KB; for reference, most deep neural networks will be anywhere between 20-200MB).
 
 Cons: Highly prone to false-positive detections, Typically requires manual tuning to the detectMultiScale function, Not anywhere near as accurate as its HOG + Linear SVM and deep learning-based face detection counterparts
 
 My recommendation: Use Haar cascades when speed is your primary concern, and you’re willing to sacrifice some accuracy to obtain real-time performance.)
 
-b) DNN [Task](face detection) [Article](https://pyimagesearch.com/2018/02/26/face-detection-with-opencv-and-deep-learning/, https://github.com/aakashjhawar/face-recognition-using-deep-learning) [Note](it is based on a Single Shot Detector (SSD) with a small ResNet backbone, allowing it to be both accurate and fast.
+[6.2] DNN [Task](face detection) [Article](https://pyimagesearch.com/2018/02/26/face-detection-with-opencv-and-deep-learning/, https://github.com/aakashjhawar/face-recognition-using-deep-learning) [Note](it is based on a Single Shot Detector (SSD) with a small ResNet backbone, allowing it to be both accurate and fast.
 
 Pros: Accurate face detector, Utilizes modern deep learning algorithms, No parameter tuning required, Can run in real-time on modern laptops and desktops
 Model is reasonably sized (just over 10MB), Relies on OpenCV’s cv2.dnn module, Can be made faster on embedded devices by using OpenVINO and the Movidius NCS
