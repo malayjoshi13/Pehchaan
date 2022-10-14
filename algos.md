@@ -59,3 +59,5 @@ The only place I tend not to use dlib’s CNN face detector is when I’m using 
 [17] Facebook DeepFace [Task](face recognition) [Article](https://sefiks.com/2020/02/17/face-recognition-with-facebook-deepface-in-keras/)
 
 [18] DeepID [Task](face recognition) [Article](https://sefiks.com/2020/06/16/face-recognition-with-deepid-in-keras/)
+
+[19] Histogram of Oriented Gradients [Task](face detection)
