@@ -1,5 +1,7 @@
 # Pehchaan
-Face detection, verification and recognition/identification system
+Deep architectures for Face detection and recognition.
+
+Note: There is another set of face recognition models, called "Shallow" which starts by extracting a representation of the face image using handcrafted local image descriptors such as SIFT, LBP, HOG ; then they aggregate such local descriptors into an overall face descriptor by using a pooling mechanism, for example, the Fisher Vector. However, we have limited the scope of this project to "Deep" architectures for face recognition and detection. The defining characteristic of such methods is the use of a CNN feature extractor model.
 
 ## 1) Setting up work environment
 ```
