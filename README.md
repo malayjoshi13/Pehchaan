@@ -1,7 +1,5 @@
 # Pehchaan
-Deep architectures for Face detection and recognition.
-
-Note: There is another set of face recognition models, called "Shallow" which starts by extracting a representation of the face image using handcrafted local image descriptors such as SIFT, LBP, HOG ; then they aggregate such local descriptors into an overall face descriptor by using a pooling mechanism, for example, the Fisher Vector. However, we have limited the scope of this project to "Deep" architectures for face recognition and detection. The defining characteristic of such methods is the use of a CNN feature extractor model.
+Pre-trained Deep and Shallow architecture models for Face detection and recognition.
 
 ## 1) Setting up work environment
 ```
@@ -43,7 +41,9 @@ Note: You can add/delete images in the database anytime, the representation file
 
 **Ex 1**: `python FaceRecognizer.py ./dataset/kalam/1.jpg ./dataset mtcnn VGG-Face euclidean` --> here "mtcnn" is used as face detector and "VGGFace" as face recognizer and "euclidean" as distance_metric
 
-**Ex 2**: `python FaceRecognizer.py ./dataset/kalam/1.jpg ./dataset` --> here by default, "retinaface" is used as face detector, "ArcFace" as face recognizer and "euclidean" as distance metric
+**Ex 2**: `python FaceRecognizer.py ./dataset/kalam/1.jpg ./dataset` --> here by default, "retinaface" is used as face detector, "ArcFace" as face recognizer and "euclidean" as the distance metric
+
+```Note: Rather than fine-tuning the pre-trained face recognition models, I choose to calculate the distance between feature vectors of input image and images in database. This is because having a small database in this use-case, fine-tuning didn't give the expected results (shown by results between two approaches below).```
 
 ## 3.2) SimilarFaceFinder:-
 **Application**: finding all database images which look similar to the face in the input image.
