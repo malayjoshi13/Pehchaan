@@ -38,13 +38,14 @@ You can anytime add/delete images in the database, the representation files will
 ## 3) Execution
 
 ## 3.1) FaceRecognizer:-
- for identifying name of person (whose image is feeded as an input) out of the database (i.e. `dataset` folder)
+**Application**: using images in the database (i.e. `dataset` folder) for identifying the name of a person whose image is fed as an input. 
 
-Syntax:- `python FaceRecognizer.py target_image_path database_path face_detector_model face_recognizer_model distance_metric`
+**Syntax**: `python FaceRecognizer.py target_image_path database_path face_detector_model face_recognizer_model distance_metric`
 
-**Behind the hood**: applies SimilarFaceFinder algorithm in 1:N format input image and each image of database. Whichever database image outputs to be similar to input image, its label is considered to be identity of the input image. In case where multiple database images are found to be similar to input image, in such case label with maximum occurence is considered as label of the input image.
+**Behind the hood**: applies the `SimilarFaceFinder` algorithm in 1:N format on the input image and each image of the database. Whichever database image is found to be similar to the input image, its label is considered to be the identity of the input image. In cases where multiple database images are found to be similar to the input image, there label with maximum occurrence is considered as the label of the input image.
 
-Ex:- `python FaceRecognizer.py ./dataset/kalam/1.jpg ./dataset mtcnn VGG-Face euclidean` OR  `python FaceRecognizer.py ./dataset/kalam/1.jpg ./dataset` as by default, "retinaface" is used as detector and "ArcFace" as recognizer and "euclidean" as distance metric
+**Ex 1**: `python FaceRecognizer.py ./dataset/kalam/1.jpg ./dataset mtcnn VGG-Face euclidean` --> here "mtcnn" is used as face detector and "VGGFace" as face recognizer and "euclidean" as distance_metric
+**Ex 2**: `python FaceRecognizer.py ./dataset/kalam/1.jpg ./dataset` --> here by default, "retinaface" is used as face detector, "ArcFace" as face recognizer and "euclidean" as distance metric
 
 ## 3.2) SimilarFaceFinder:-
  for finding all faces (present in the database) which look similar to target face input to the system
