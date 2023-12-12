@@ -1,4 +1,11 @@
-# second stage
+# for verifying if two input images different or same
+
+# Used as modules in FaceRecongnizer.py and SimilarFaceFinder.py scripts
+
+# If want to use them as standalone scripts, use:
+# "python FaceVerifier.py ./dataset/kalam/1.jpg ./dataset/kalam/hi.jpeg mtcnn VGG-Face euclidean" --> here "mtcnn" is used as face detector and "VGGFace" as face recognizer and "euclidean" as distance_metric
+# or 
+# "python FaceVerifier.py ./dataset/kalam/1.jpg ./dataset/kalam/hi.jpeg" --> here by default, "retinaface" is used as face detector, "ArcFace" as face recognizer and "euclidean" as distance metric
 
 from tqdm import tqdm
 import numpy as np
@@ -168,9 +175,5 @@ if __name__ == "__main__":
         distance_metric = 'euclidean'
 
     result = verify(img1_path, img2_path, detector_backend = detector_backend, model_name = model_name, distance_metric = distance_metric)
-
-# "python FaceVerifier.py ./dataset/kalam/1.jpg ./dataset/kalam/hi.jpeg mtcnn VGG-Face euclidean"
-# or "python FaceVerifier.py ./dataset/kalam/1.jpg ./dataset/kalam/hi.jpeg" as by default use 
-#      "retinaface" as detector and "ArcFace" as recognizer and "euclidean" as distance_metric
 
 

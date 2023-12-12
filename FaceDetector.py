@@ -1,4 +1,9 @@
-# first stage
+# finds face region out of the whole input image of a person
+
+# If want to use it as a stanalone script, use:
+# "python FaceRecognizer.py ./dataset/kalam/1.jpg ./dataset mtcnn VGGFace euclidean"
+# or 
+# "python FaceRecognizer.py ./dataset/kalam/1.jpg ./dataset"
 
 import numpy as np
 import cv2
