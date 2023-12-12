@@ -1,27 +1,22 @@
 # Pehchaan
 Face detection, verification and recognition/identification system
 
-## 1) Install
-
-- Create a virtual environment named "pehchaan" (only once):
-
-  `conda create -n pehchaan`
-
-- Activate the virtual environment each time:
-
-  `conda activate pehchaan`
-
-- Install dependencies (only once):
-
-  `conda install pip`
-
-  `pip install -r requirements.txt`
-  
-## 2) Folder structure
-
-After cloning this GitHub repository, setup the database inside `dataset` folder by taking reference of following folder structure
+## 1) Setting up work environment
 ```
-cloned version of Pehchaan github repo
+git clone https://github.com/malayjoshi13/Pehchaan.git
+
+conda create -n pehchaan`
+
+conda activate pehchaan
+
+pip install -r requirements.txt
+```
+  
+## 2) Directory structure
+
+After cloning this GitHub repository, set the database inside the `dataset` folder by taking reference of the following folder directory structure:
+```
+Pehchaan
 ├── dataset folder
 │   ├── Name of Person1
 │   │   ├── First image of Person1
@@ -33,12 +28,12 @@ cloned version of Pehchaan github repo
 .   .   .
 .   .   .
 ```
-You can anytime add/delete images in the database, the representation files will be made automatically for `FaceRecognizer` task
+Note: You can add/delete images in the database anytime, the representation files will be made automatically for the `FaceRecognizer` functionality
 
 ## 3) Execution
 
 ## 3.1) FaceRecognizer:-
-**Application**: using images in the database (i.e. `dataset` folder) for identifying the name of a person whose image is fed as an input. 
+**Application**: identifying the name of a person whose image is fed as an input using images in the database (i.e. `dataset` folder). 
 
 **Syntax**: `python FaceRecognizer.py target_image_path database_path face_detector_model face_recognizer_model distance_metric`
 
