@@ -1,5 +1,5 @@
 # Pehchaan
-Pre-trained Deep and Shallow architecture models for Face detection and recognition.
+Face detection and recognition using pre-trained Deep and Shallow architecture models.
 
 ## 1) Setting up work environment
 ```
