@@ -65,7 +65,7 @@ def find_similar_faces(user_img_path, db_path, face_recog_model ='ArcFace', dist
             for index, instance in df.iterrows():
                 source_representation = instance["%s_representation" % (model_name)]
             
-                _, identified = compare_faces(target_representation, source_representation, distance_metric, model_name, detector_backend)
+                _, identified = compare_faces(target_representation, source_representation, face_recog_model, distance_metric, face_detection_model)
                 if identified:
                     # will add path of database images having representation close to target image
                     # in "resp_obj" list
@@ -86,18 +86,18 @@ if __name__ == "__main__":
     database = sys.argv[2]
 
     try:
-        detector_backend = sys.argv[3]
+        face_detection_model = sys.argv[3]
     except:
-        detector_backend = "RetinaFace"
+        face_detection_model = "RetinaFace"
 
     try:
-        model_name = sys.argv[4]
+        face_recog_model = sys.argv[4]
     except:
-        model_name = "ArcFace"
+        face_recog_model = "ArcFace"
 
     try:
         distance_metric = sys.argv[5]
     except:
-        distance_metric = 'euclidean'        
+        distance_metric = 'euclidean'      
 
-    result = find_similar_faces(img1_path, database, detector_backend = detector_backend, model_name = model_name, distance_metric = distance_metric)
+    result = find_similar_faces(img1_path, database, face_recog_model = face_recog_model, distance_metric = distance_metric, face_detection_model = face_detection_model)

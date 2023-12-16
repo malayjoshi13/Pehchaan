@@ -11,7 +11,6 @@ from recognizers import ArcFace, DeepID, Facenet, Facenet512, FbDeepFace, OpenFa
 from utils import CreateRepresentation
 
 def build_recognition_model(face_recog_model = 'ArcFace'):
-    global model_obj
 
     models = {
     'VGGFace': VGGFace.loadModel,

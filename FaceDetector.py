@@ -8,7 +8,6 @@ import numpy as np
 import cv2
 # from detectors import OpenCvHaarCascadeWrapper, MtcnnWrapper, OpenCvDNNWrapper, DlibWrapper, RetinaFaceWrapper, MediapipeWrapper 
 from detectors import OpenCvHaarCascadeWrapper, MtcnnWrapper, OpenCvDNNWrapper, RetinaFaceWrapper, MediapipeWrapper 
-import sys
 import warnings
 warnings.filterwarnings("ignore")
 

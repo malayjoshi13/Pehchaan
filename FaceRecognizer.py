@@ -3,7 +3,7 @@
 # This script is used to get label of user's input image.
  
 # How to run:
-# "python FaceRecognizer.py ./dataset/kalam/1.jpg ./dataset mtcnn VGGFace euclidean" 
+# "python FaceRecognizer.py ./dataset/kalam/1.jpg ./dataset MTCNN VGGFace euclidean" 
 # above "MTCNN" is used as detector and "VGGFace" as recognizer and "euclidean" as distance_metric
 # or 
 # "python FaceRecognizer.py ./dataset/kalam/1.jpg ./dataset" 
@@ -24,7 +24,7 @@ def most_frequent(List):
     return num
 
 def recognize(img_path, db_path, face_recog_model ='ArcFace', distance_metric = 'euclidean', face_detection_model = 'RetinaFace'):
-    results = find_similar_faces(img_path, db_path, face_recog_model = face_recog_model, face_detection_model = face_detection_model)
+    results = find_similar_faces(img_path, db_path, face_recog_model = face_recog_model, distance_metric = distance_metric, face_detection_model = face_detection_model)
     label_list = list()
     for result in results:
         label = result.split('/')[-2]
@@ -39,14 +39,14 @@ if __name__ == "__main__":
     database = sys.argv[2]
 
     try:
-        face_recog_model = sys.argv[3]
+        face_detection_model = sys.argv[3]
     except:
-        face_recog_model = "RetinaFace"
+        face_detection_model = "RetinaFace"
 
     try:
-        face_detection_model = sys.argv[4]
+        face_recog_model = sys.argv[4]
     except:
-        face_detection_model = "ArcFace"
+        face_recog_model = "ArcFace"
 
     try:
         distance_metric = sys.argv[5]
