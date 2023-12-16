@@ -1,78 +1,63 @@
-# finds face region out of the whole input image of a person
+# stage 1
 
-# If want to use it as a stanalone script, use:
-# "python FaceRecognizer.py ./dataset/kalam/1.jpg ./dataset mtcnn VGGFace euclidean"
-# or 
-# "python FaceRecognizer.py ./dataset/kalam/1.jpg ./dataset"
+# This script finds face region out of the whole input image of a person
+
+# This script is used as a module in "utils/CreateRepresentation.py" script which is in-return used by "FaceRecongnizer.py" script
 
 import numpy as np
 import cv2
-import detectors.OpenCvHaarCascadeWrapper as OpenCvHaarCascadeWrapper
-import detectors.MtcnnWrapper as MtcnnWrapper
-import detectors.OpenCvDNNWrapper as OpenCvDNNWrapper
-import detectors.DlibWrapper as DlibWrapper
-import detectors.RetinaFaceWrapper as RetinaFaceWrapper
-import detectors.MediapipeWrapper as MediapipeWrapper
+# from detectors import OpenCvHaarCascadeWrapper, MtcnnWrapper, OpenCvDNNWrapper, DlibWrapper, RetinaFaceWrapper, MediapipeWrapper 
+from detectors import OpenCvHaarCascadeWrapper, MtcnnWrapper, OpenCvDNNWrapper, RetinaFaceWrapper, MediapipeWrapper 
 import sys
 import warnings
 warnings.filterwarnings("ignore")
 
-
-def init_detector_build(detector_backend = 'retinaface'):
+def build_detector_model(face_detection_model = 'RetinaFace'):
 
     # We create a dictionary having multiple options for initiating detectors
     build_model_options = {
-        'opencvhaar': OpenCvHaarCascadeWrapper.build_model,
-        'opencvdnn': OpenCvDNNWrapper.build_model,
-        'mtcnn': MtcnnWrapper.build_model,
-        'dlib': DlibWrapper.build_model,
-        'retinaface': RetinaFaceWrapper.build_model,
-	    'mediapipe': MediapipeWrapper.build_model        
+        'OpenCVHaar': OpenCvHaarCascadeWrapper.build_model,
+        'OpenCVDNN': OpenCvDNNWrapper.build_model,
+        'MTCNN': MtcnnWrapper.build_model,
+        # 'dlib': DlibWrapper.build_model,
+        'RetinaFace': RetinaFaceWrapper.build_model,
+	    'MediaPipe': MediapipeWrapper.build_model        
     }
 
-    # We choose "initiation option" cooresponding to our detector from "build_model_options"
-    #   dictionary and save it in "face_detector_builder" variable   
-    face_detector_builder = build_model_options.get(detector_backend)
-    # If "initiation option" choosed is valid, 
+    face_detector_builder = build_model_options.get(face_detection_model)
     if face_detector_builder:
-        # then we call this function "face_detector_builder", i.e actually calling 
-        # lets say "OpenCvWrapper.build_model" function (value from dictionary corresponding
-        # to our selected detector)
-        face_detector_builder_value = face_detector_builder()
+        face_detector_builded = face_detector_builder()
     else:
-        raise ValueError("invalid detector_backend passed - " + detector_backend)
+        raise ValueError("invalid detector_backend passed - " + face_detection_model)
 
-    return face_detector_builder_value
+    return face_detector_builded
 
 
+def initiate_detection(face_detector, img, face_detection_model = 'RetinaFace'):
 
-def init_detector_detection(face_detector, img, detector_backend = 'retinaface'):
-
-    # We create a dictionary having multiple options for starting prediction work for 
-    #   different detectors
+    # We create a dictionary having multiple options for starting prediction work for different detectors
     prediction_from_model_options = {
-        'opencvhaar': OpenCvHaarCascadeWrapper.detect_face,
-        'opencvdnn': OpenCvDNNWrapper.detect_face,
-        'mtcnn': MtcnnWrapper.detect_face,
-        'dlib': DlibWrapper.detect_face,
-        'retinaface': RetinaFaceWrapper.detect_face,
-	    'mediapipe': MediapipeWrapper.detect_face        
+        'OpenCVHaar': OpenCvHaarCascadeWrapper.detect_face,
+        'OpenCVDNN': OpenCvDNNWrapper.detect_face,
+        'MTCNN': MtcnnWrapper.detect_face,
+        # 'dlib': DlibWrapper.detect_face,
+        'RetinaFace': RetinaFaceWrapper.detect_face,
+	    'MediaPipe': MediapipeWrapper.detect_face        
     }
 
     # We choose "prediction option" cooresponding to our detector from "prediction_from_model_options"
-    #   dictionary and save it in "face_detector_predictor" variable 
-    face_detector_predictor = prediction_from_model_options.get(detector_backend)
+    # dictionary and save it in "detection_initiaited" variable 
+    detection_initiaited = prediction_from_model_options.get(face_detection_model)
 
-    # If "prediction option" choosed is valid,
-    if face_detector_predictor:
+    if detection_initiaited:
         # then we call this function "face_detector_predictor", i.e actually calling 
         # lets say "OpenCvWrapper.detect_face" function (value from dictionary corresponding
         # to our selected detector)
         # Output of this function, i.e list of detected_face and region pair
         #   gets saved in "obj" variable
-        obj = face_detector_predictor(face_detector, img)
+        obj = detection_initiaited(face_detector, img)
     else:
-        raise ValueError("invalid detector_backend passed - " + detector_backend)
+        raise ValueError("invalid detector_backend passed - " + face_detection_model)
 
     #..............................................
 
@@ -85,31 +70,29 @@ def init_detector_detection(face_detector, img, detector_backend = 'retinaface')
     return face, region
 
 
-
-def find_faces(img_path, detector_backend = 'retinaface', target_size = (224, 224)):
+def find_faces(img_path, face_detection_model = 'RetinaFace', target_size = (224, 224)):
 
     # Read the image on which face detection is to be performed
     img = cv2.imread(img_path)
     base_img = img.copy()
 
-    #--------------------------
-
     # Initiate face detection model
-    face_detector = init_detector_build(detector_backend)
+    face_detector_builded = build_detector_model(face_detection_model)
 
-    # Perform face detection on the image using "detect_face" function.
+
+    # Perform face detection on the image.
     # This function outputs "detected_face" which has pixels of detected part of face
     # and "img_region" which has coordinates of detected part of face 
-    # Right now we will use "detected_face" output of this function
-        # If this function could detect face, it will store pixels of 
-        #    detected face in "detected_face" variable
+    # Right now we will use "detected_face" output of this function:
+        # If this function could detect face, it will store pixels of detected face in "detected_face" variable
         # If it cannot detect face, it will store "None" in "detected_face" variable
     try:
-        detected_face, img_region = init_detector_detection(face_detector, img, detector_backend)
+        detected_face, img_region = initiate_detection(face_detector_builded, img, face_detection_model)
         print("face found in this image")
     except: 
         detected_face = None
         print("no face found in this image")
+
 
     # If "detected_face" is not Nill but an array of pixels of detected part of face,
     #     then these pixels gets stored in "img" variable
@@ -120,8 +103,7 @@ def find_faces(img_path, detector_backend = 'retinaface', target_size = (224, 22
     elif detected_face == None:
         img = base_img
 
-	#---------------------------------------------------
-	
+
     # Resize image to expected shape
     if img.shape[0] > 0 and img.shape[1] > 0:
         factor_0 = target_size[0] / img.shape[0]
@@ -136,10 +118,7 @@ def find_faces(img_path, detector_backend = 'retinaface', target_size = (224, 22
         diff_1 = target_size[1] - img.shape[1]
         img = np.pad(img, ((diff_0 // 2, diff_0 - diff_0 // 2), (diff_1 // 2, diff_1 - diff_1 // 2), (0, 0)), 'constant')
 
-	#---------------------------------------------------
-
 	# Normalizing the image pixels for passing ahead to face recognition task
-
     img_pixels = np.asarray(img)
     imgpixels_to_img = img_pixels.copy()
 
@@ -156,17 +135,3 @@ def find_faces(img_path, detector_backend = 'retinaface', target_size = (224, 22
     # data.show()
 
     return img_pixels
-
-
-# Main driver
-if __name__ == "__main__":
-     backends = ['opencvhaar', 'opencvdnn', 'dlib', 'mtcnn', 'retinaface', 'mediapipe']
-     img_path = sys.argv[1]
-     try:
-        detector_backend = sys.argv[2]
-     except:
-         detector_backend = 'retinaface'
-     face = find_faces(img_path, detector_backend, target_size = (224, 224))
-
-# just run "python FaceDetector.py ./dataset/kalam/1.jpg mtcnn"
-# or "python FaceDetector.py ./dataset/kalam/1.jpg" as by default it has "retinaface"
