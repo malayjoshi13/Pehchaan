@@ -1,6 +1,9 @@
 # Pehchaan
 Face detection and recognition using pre-trained Deep and Shallow architecture models.
 
+Face detection → Finding face out of a full image
+Face recognition → Tell name of face in a given image
+
 ## 1) Setting up work environment
 ```
 git clone https://github.com/malayjoshi13/Pehchaan.git
