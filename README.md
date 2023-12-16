@@ -42,9 +42,9 @@ Note: You can add/delete images in the database anytime, the representation file
 
 **Under the hood**: `FaceRecognizer` algorithm applies the `SimilarFaceFinder` algorithm in 1:N format on the input image and each image of the database to find all database images which are similar to the input image. After this, the `FaceRecognizer` algorithm selects the most common/repetitive/famous label out of labels of these matched/found database images. This selected label is considered to be the identity of the input image. 
 
-**Ex 1**: `python FaceRecognizer.py ./dataset/kalam/1.jpg ./dataset mtcnn VGG-Face euclidean` --> here "mtcnn" is used as face detector and "VGGFace" as face recognizer and "euclidean" as distance_metric
+**Ex 1**: `python FaceRecognizer.py ./dataset/kalam/1.jpg ./dataset MTCNN VGGFace euclidean` --> here "MTCNN" is used as face detector and "VGGFace" as face recognizer and "euclidean" as distance_metric
 
-**Ex 2**: `python FaceRecognizer.py ./dataset/kalam/1.jpg ./dataset` --> here by default, "retinaface" is used as face detector, "ArcFace" as face recognizer and "euclidean" as the distance metric
+**Ex 2**: `python FaceRecognizer.py ./dataset/kalam/1.jpg ./dataset` --> here by default, "RetinaFace" is used as face detector, "ArcFace" as face recognizer and "euclidean" as the distance metric
 
 ```Note: Rather than fine-tuning the pre-trained face recognition models, I choose to calculate the distance between feature vectors of input image and images in database. This is because having a small database in this use-case, fine-tuning didn't give the expected results (shown by results between two approaches below).```
 
@@ -55,15 +55,15 @@ Note: You can add/delete images in the database anytime, the representation file
 
 Syntax:- `python SimilarFaceFinder.py target_image_path database_path face_detector_model face_recognizer_model distance_metric`
 
-**Ex 1**: `python SimilarFaceFinder.py ./dataset/kalam/1.jpg ./dataset mtcnn VGG-Face euclidean` --> here "mtcnn" is used as face detector and "VGGFace" as face recognizer and "euclidean" as distance_metric
+**Ex 1**: `python SimilarFaceFinder.py ./dataset/kalam/1.jpg ./dataset MTCNN VGGFace euclidean` --> here "MTCNN" is used as face detector and "VGGFace" as face recognizer and "euclidean" as distance_metric
 
-**Ex 2**: `python SimilarFaceFinder.py ./dataset/kalam/1.jpg ./dataset` --> here by default, "retinaface" is used as face detector, "ArcFace" as face recognizer and "euclidean" as distance metric
+**Ex 2**: `python SimilarFaceFinder.py ./dataset/kalam/1.jpg ./dataset` --> here by default, "RetinaFace" is used as face detector, "ArcFace" as face recognizer and "euclidean" as distance metric
 
 ## 4) Options to choose from
 
-4.1) For `face_detector_model`:- opencvhaar, opencvdnn, dlib, mtcnn, retinaface, mediapipe
+4.1) For `face_detector_model`:- OpenCVHaar, OpenCVDNN, Dlib, MTCNN, RetinaFace, MediaPipe
 
-4.2) For `face_recognizer_model`:- VGG-Face, Facenet, Facenet512, OpenFace, DeepFace, DeepID, ArcFace, SFace
+4.2) For `face_recognizer_model`:- VGGFace, Facenet, Facenet512, OpenFace, DeepFace, DeepID, ArcFace, SFace
 
 ## 5) Use cases
 
