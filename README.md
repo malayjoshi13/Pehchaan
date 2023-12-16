@@ -8,7 +8,7 @@ Face recognition → Tell name of face in a given image
 ```
 git clone https://github.com/malayjoshi13/Pehchaan.git
 
-conda create -n pehchaan`
+conda create -n pehchaan
 
 conda activate pehchaan
 
