@@ -2,3 +2,4 @@
 *.onnx
 *.pkl
 *.txt
+/temp
