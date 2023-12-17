@@ -11,7 +11,7 @@
 
 import sys
 import os
-import CompareFaces
+import services.CompareFaces as CompareFaces
 from utils import CheckImageAdded, CreateRepresentation
 import pickle
 import pandas as pd

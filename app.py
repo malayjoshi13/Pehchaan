@@ -1,36 +1,98 @@
 # streamlit run app.py
 
 import streamlit as st 
-from utils import supported_languages
-from services import translate, show_models
+from utils import supported_detection_model, supported_recognition_model
+from services import FaceRecognizer
+from pathlib import Path
+import os
 
-translate_button = None
-translation_model = None
-models = [" "]
+if 'Submit' not in st.session_state:
+    st.session_state['Submit'] = None
+if 'reference_image_saved' not in st.session_state:
+    st.session_state['reference_image_saved'] = False
+if 'face_detection_model' not in st.session_state:
+    st.session_state['face_detection_model'] = " "
+if 'face_recognition_model' not in st.session_state:
+    st.session_state['face_recognition_model'] = " "    
+if 'do_auto_label' not in st.session_state:
+    st.session_state['do_auto_label'] = None   
+if 'user_image_saved' not in st.session_state:
+    st.session_state['user_image_saved'] = False 
 
-# Show user list of supported source and target languages and let them select from the list.
-st.title("Language Translation App")
-source_language = st.selectbox("Select source language:", supported_languages.final_list)
-target_language = st.selectbox("Select target language:", supported_languages.final_list)
+ReferenceImages = []
+Name = None   
+count = 0
 
-
-# Once user selects both source language and target language.
-if source_language != " " and target_language != " ":
-    # Let user input source sentence.
-    source_text = st.text_area("Enter text to translate:")
-
-    # Show user list of model(s) based on source and target languages
-    models = show_models.model_list(source_language, target_language)
-
-    # Let user select translation model
-    translation_model = st.selectbox("Select transformer-based translation model:", models)
-
-    # Once user select source lang, target lang, source sentence and translation model, show translation button to him/her.
-    if source_text != " " and translation_model != " ":
-        translate_button = st.button('Translate')
+st.title("Photograph Auto-labeler")
 
 
-# Once user clicks translate button, do translation and show output to user on Streamlits's UI
-if translate_button:
-    translated_output = translate.do_translation(translation_model, source_text, source_language, target_language)
-    st.write(translated_output)
+# asking user for label/identity/name 
+Name = st.text_input("Name of the person: ", key = "label")
+if Name:
+    save_folder = './dataset/'+str(Name)
+    Path(save_folder).mkdir(parents=True, exist_ok=True)
+    len_images_in_save_folder = len(os.listdir(save_folder))
+    for file in os.listdir(save_folder):
+        if file.endswith(('.jpg', '.png', '.jpeg')):
+            count+=1
+    len_save_folder = count
+    print(len_save_folder)
+
+    # asking user for 4 reference image per label. If the label folder already has 4 reference images, then dont allow more uploads.
+    while len_save_folder<4:
+        len_save_folder += 1
+        ReferenceImages = st.file_uploader(label = "Upload reference image of this person", type=["png","jpg", "jpeg"], key =f"image_{len_save_folder}", accept_multiple_files=True)
+    # if name and reference image are given by user, then show submit button
+    if Name and ReferenceImages:
+        Submit = st.button('Submit')
+        if not st.session_state['Submit']:
+            st.session_state['Submit'] = Submit      
+
+
+# if submit is clicked, then save reference image to dataset folder in sub-folder corresponding to label/name of person in it & show option to select models
+if st.session_state['Submit']:
+    save_folder = './dataset/'+str(Name)
+    Path(save_folder).mkdir(parents=True, exist_ok=True)
+    
+    for ReferenceImage in ReferenceImages:
+        save_path = str(save_folder) + "/" + str(ReferenceImage.name)
+        with open(save_path, mode='wb') as w:
+            w.write(ReferenceImage.getvalue())
+            # st.success(f'Reference image {ReferenceImage.name} is successfully saved at "dataset" folder!')
+            if not st.session_state['reference_image_saved']:
+                st.session_state['reference_image_saved'] = True
+
+
+# once reference image is saved, show options of models to select   
+if st.session_state['reference_image_saved']:
+    face_detection_model = st.selectbox("Select face detection model:", supported_detection_model.final_list, key = "face detection model")
+    face_recognition_model = st.selectbox("Select face recognition model:", supported_recognition_model.final_list, key = "face recognition model")
+    st.session_state['face_detection_model'] = face_detection_model
+    st.session_state['face_recognition_model'] = face_recognition_model
+
+    # once user selects both face detection and recognition models, ask user to upload image to auto-label it
+    if st.session_state['face_recognition_model'] != " " and st.session_state['face_detection_model'] != " ":
+        UserImage = st.file_uploader(label = "Upload file", type=["png","jpg", "jpeg"], key="user image uploader")
+        if UserImage:
+            st.session_state['user_image_saved'] = True
+        
+        # once user has also uploaded user image, show user "Auto-label" button
+        if st.session_state['user_image_saved']:
+            do_auto_label = st.button('Auto-label this image!')
+            st.session_state['do_auto_label'] = do_auto_label
+
+
+# once user clicks on "Auto-label" button, user image will be saved and will auto-labeled.
+if st.session_state['do_auto_label']:
+    # user image will be saved
+    save_user_folder = './temp/'
+    save_user_path = str(save_user_folder) + "/" + str(UserImage.name)
+    Path(save_user_folder).mkdir(parents=True, exist_ok=True)
+
+    with open(save_user_path, mode='wb') as w:
+        w.write(UserImage.getvalue())
+        # st.success(f'User image {UserImage.name} is successfully saved at {save_user_folder}!')
+
+    # user image will be auto-labeled
+    result = FaceRecognizer.recognize(img_path = save_user_path, db_path = './dataset', face_recog_model = face_recognition_model, distance_metric = 'euclidean', face_detection_model = face_detection_model)
+    st.write("Identity of person in input image is:-", result)

@@ -1,0 +1,1 @@
+final_list = [' ', 'VGGFace', 'Facenet', 'OpenFace', 'DeepFace', 'DeepID', 'ArcFace', 'SFace']

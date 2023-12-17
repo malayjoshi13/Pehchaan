@@ -5,7 +5,7 @@ from tqdm import tqdm
 import os
 import pickle
 from utils import FindInputShape
-import FaceDetector
+import services.FaceDetector as FaceDetector
 
 import warnings
 # To ignore all warnings

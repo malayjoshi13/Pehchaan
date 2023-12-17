@@ -1,0 +1,1 @@
+final_list = [' ', 'OpenCVHaar', 'OpenCVDNN', 'Dlib', 'MTCNN', 'RetinaFace', 'MediaPipe']
