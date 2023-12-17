@@ -1,1 +1,1 @@
-['./dataset/kalam/1.jpg', './dataset/kalam/download (3).jpeg', './dataset/kalam/download.jpeg', './dataset/kalam/images (1).jpeg', './dataset/kalam/images (2).jpeg', './dataset/kalam/images.jpeg', './dataset/kalam/vv.jpeg']
+['./dataset/kalam/1.jpg', './dataset/kalam/download (3).jpeg', './dataset/kalam/images (1).jpeg', './dataset/kalam/vv.jpeg']
