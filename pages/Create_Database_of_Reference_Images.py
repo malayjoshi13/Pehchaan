@@ -10,9 +10,10 @@ if 'Submit' not in st.session_state:
 if 'reference_images_not_saved' not in st.session_state:
     st.session_state['reference_images_not_saved'] = True
 
-
 len_imgs_in_save_folder = 0
 ReferenceImage_dict = dict()
+
+st.title("Create database of reference images")
 
 
 # asking user for label/identity/name. 
@@ -23,7 +24,7 @@ if not st.session_state['Name']:
 
 # as name is entered by user then ask for 4 reference images.
 if st.session_state['Name'] and Name!="": 
-    save_folder = './dataset/'+str(Name)
+    save_folder = './database/'+str(Name)
     Path(save_folder).mkdir(parents=True, exist_ok=True)
     len_images_in_save_folder = len(os.listdir(save_folder))
 
@@ -49,9 +50,9 @@ if st.session_state['Name'] and Name!="":
             if not st.session_state['Submit']:
                 st.session_state['Submit'] = submit     
 
-            # if submit is clicked, then save reference image to "dataset" folder in sub-folder corresponding to label/name of person in it and show success message and rerun.
+            # if submit is clicked, then save reference image to "database" folder in sub-folder corresponding to label/name of person in it and show success message and rerun.
             if st.session_state['Submit']:
-                save_folder = './dataset/'+str(Name)
+                save_folder = './database/'+str(Name)
                 Path(save_folder).mkdir(parents=True, exist_ok=True)
                 
                 for ReferenceImage_name in ReferenceImage_dict.keys():

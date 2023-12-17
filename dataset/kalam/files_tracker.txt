@@ -1,1 +1,0 @@
-['./dataset/kalam/1.jpg', './dataset/kalam/download (3).jpeg', './dataset/kalam/images (1).jpeg', './dataset/kalam/vv.jpeg']
