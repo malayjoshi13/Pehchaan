@@ -8,6 +8,7 @@ import numpy as np
 import cv2
 # from detectors import OpenCvHaarCascadeWrapper, MtcnnWrapper, OpenCvDNNWrapper, DlibWrapper, RetinaFaceWrapper, MediapipeWrapper 
 from detectors import OpenCvHaarCascadeWrapper, MtcnnWrapper, OpenCvDNNWrapper, RetinaFaceWrapper, MediapipeWrapper 
+
 import warnings
 warnings.filterwarnings("ignore")
 
@@ -71,13 +72,11 @@ def initiate_detection(face_detector, img, face_detection_model = 'RetinaFace'):
 
 def find_faces(img_path, face_detection_model = 'RetinaFace', target_size = (224, 224)):
 
-    # Read the image on which face detection is to be performed
     img = cv2.imread(img_path)
     base_img = img.copy()
 
     # Initiate face detection model
     face_detector_builded = build_detector_model(face_detection_model)
-
 
     # Perform face detection on the image.
     # This function outputs "detected_face" which has pixels of detected part of face
@@ -87,10 +86,10 @@ def find_faces(img_path, face_detection_model = 'RetinaFace', target_size = (224
         # If it cannot detect face, it will store "None" in "detected_face" variable
     try:
         detected_face, img_region = initiate_detection(face_detector_builded, img, face_detection_model)
-        print("face found in this image")
+        result = "Face found in this image"
     except: 
         detected_face = None
-        print("no face found in this image")
+        result = "No face found in this image"
 
 
     # If "detected_face" is not Nill but an array of pixels of detected part of face,
@@ -133,4 +132,4 @@ def find_faces(img_path, face_detection_model = 'RetinaFace', target_size = (224
     # data.save('dataset/kalam/5.jpg')
     # data.show()
 
-    return img_pixels
+    return result, img_pixels

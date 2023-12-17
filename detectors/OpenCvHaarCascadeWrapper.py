@@ -1,6 +1,5 @@
 import cv2
 import utils.face_aligner as face_aligner 
-import os
 
 def build_cascade(model_name):
     if model_name == 'haarcascade':
@@ -12,16 +11,11 @@ def build_cascade(model_name):
         return eye_detector
 
 
-
 def build_model():
 	detector ={}
 	detector["face_detector"] = build_cascade('haarcascade')
 	detector["eye_detector"] = build_cascade('haarcascade_eye')
 	return detector
-
-
-
-#------------------------------------------------------------
 
 
 def find_eyes_for_opencv(eye_detector, img):
@@ -59,7 +53,6 @@ def find_eyes_for_opencv(eye_detector, img):
 		right_eye = (int(right_eye[0] + (right_eye[2]/2)), int(right_eye[1] + (right_eye[3]/2)))
 		
 	return (left_eye, right_eye) 
-
 
 
 def detect_face(detector, img):

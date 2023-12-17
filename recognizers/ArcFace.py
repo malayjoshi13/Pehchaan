@@ -69,18 +69,15 @@ def baseModel():
 
     return model
 
-#----------------------------------------------------------------------
-
-def loadModel(url = 'https://drive.google.com/uc?id=1EDT89UyaQi-1njp8gnu4rjOAhs47pgmQ'):
-	
+def loadModel(url = 'https://drive.google.com/uc?id=1J5pwS7U2fIaJWqHBup5J41ddicZR2ESl'):
     model = baseModel()
 
     #-----------------------------------	
 
-    weight_location_in_local = os.path.join(os.getcwd(), 'weights', 'arcface', 'arcface_weights.h5')
+    weight_location_in_local = os.path.join(os.getcwd(), 'recognizers', 'recognizers_weights', 'arcface', 'arcface_weights.h5')
 
-    if not os.path.exists('./weights/arcface'):
-        os.mkdir('./weights/arcface')	
+    if not os.path.exists('./recognizers/recognizers_weights/arcface'):
+        os.mkdir('./recognizers/recognizers_weights/arcface')	
 
     if os.path.isfile(weight_location_in_local) != True:
         print("arcface_weights.h5 will be downloaded...")

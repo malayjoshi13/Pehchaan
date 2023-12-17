@@ -8,7 +8,6 @@ def build_model():
 	return face_detector
 
 
-
 def detect_face(face_detector, img):
 
 	resp = []

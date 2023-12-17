@@ -4,11 +4,13 @@ import os
 import dlib
  
 def build_model():
-    home = './models/dlib/'
+
+    home = './detectors/detectors_weights/dlib/'
+
     if not os.path.exists(home):
         os.mkdir(home)
 
-    weight1_location_in_local = './models/dlib/shape_predictor_5_face_landmarks.dat'
+    weight1_location_in_local = './detectors/detectors_weights/dlib/shape_predictor_5_face_landmarks.dat'
 
     if os.path.isfile(weight1_location_in_local) != True:
         print("shape_predictor_5_face_landmarks.dat is going to be downloaded")
@@ -21,13 +23,12 @@ def build_model():
         open(weight1_location_in_local, 'wb').write(data)
 
     face_detector = dlib.get_frontal_face_detector()
-    sp = dlib.shape_predictor('./models/dlib/shape_predictor_5_face_landmarks.dat')
+    sp = dlib.shape_predictor('./detectors/detectors_weights/dlib/shape_predictor_5_face_landmarks.dat')
 
     detector = {}
     detector["face_detector"] = face_detector
     detector["sp"] = sp
     return detector
-
 
 
 def detect_face(detector, img):

@@ -4,7 +4,6 @@ import zipfile
 from tensorflow.keras.models import Model, Sequential
 from tensorflow.keras.layers import Convolution2D, LocallyConnected2D, MaxPooling2D, Flatten, Dense, Dropout
 
-#-------------------------------------
 def baseModel():
     base_model = Sequential()
     base_model.add(Convolution2D(32, (11, 11), activation='relu', name='C1', input_shape=(152, 152, 3)))
@@ -19,22 +18,23 @@ def baseModel():
     base_model.add(Dense(8631, activation='softmax', name='F8'))
     return base_model 
 
-def loadModel(url = 'https://drive.google.com/uc?id=1aYbpMuaWCl7Bv-lxjZWe_FdUlKVNsEpB'):
+def loadModel(url = 'https://drive.google.com/uc?id=1Gh-5OChUr4LKvELOpzyFUh_NHGvENX_F'): 
 
     model = baseModel()
 
-    weight_location_in_local = os.path.join(os.getcwd(), 'weights', 'DeepFace', 'VGGFace2_DeepFace_weights_val-0.9034.h5')
+    #-----------------------------------
 
-    if not os.path.exists('./weights/DeepFace'):
-        os.mkdir('./weights/DeepFace')	
+    weight_location_in_local = os.path.join(os.getcwd(), 'recognizers', 'recognizers_weights', 'DeepFace', 'deepface_weights.h5')
+
+    if not os.path.exists('./recognizers/recognizers_weights/DeepFace'):
+        os.mkdir('./recognizers/recognizers_weights/DeepFace')	
 
     if os.path.isfile(weight_location_in_local) != True:
-        print("VGGFace2_DeepFace_weights.h5 will be downloaded...")		
+        print("deepface_weights.h5 will be downloaded...")		
         gdown.download(url, weight_location_in_local, quiet=False)
-        
-        with zipfile.ZipFile(weight_location_in_local, 'r') as zip_ref:
-            zip_ref.extractall('./weights/DeepFace')
-        
+
+    #-----------------------------------
+
     model.load_weights(weight_location_in_local)	
 
     deepface = Model(inputs=model.layers[0].input, outputs=model.layers[-3].output)

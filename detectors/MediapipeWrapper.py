@@ -1,13 +1,10 @@
-
 import utils.face_aligner as face_aligner 
 import mediapipe as mp
-
 
 def build_model():
     mp_face_detection = mp.solutions.face_detection
     face_detector =  mp_face_detection.FaceDetection(min_detection_confidence=0.7)
     return face_detector
-
 
 
 def detect_face(face_detector, img):

@@ -4,8 +4,6 @@ import gdown
 from tensorflow.keras.models import Model, Sequential
 from tensorflow.keras.layers import Convolution2D, ZeroPadding2D, MaxPooling2D, Flatten, Dropout, Activation
 
-#---------------------------------------
-
 def baseModel():
 	model = Sequential()
 	model.add(ZeroPadding2D((1,1),input_shape=(224,224, 3)))
@@ -54,15 +52,16 @@ def baseModel():
 	return model
 
 
-def loadModel(url = 'https://drive.google.com/uc?id=1SyW30B17G8AmxKy-_ZO6u-fzB0cXWdZY'):
+def loadModel(url = 'https://drive.google.com/uc?id=1SmE25_SkSytYvUcfMz1A6Xk7DQupVYtY'): 
 
 	model = baseModel()
 
 	#-----------------------------------
-	weight_location_in_local = os.path.join(os.getcwd(), 'weights', 'vgg_face', 'vgg_face_weights.h5')
 
-	if not os.path.exists('./weights/vgg_face'):
-		os.mkdir('./weights/vgg_face')	
+	weight_location_in_local = os.path.join(os.getcwd(), 'recognizers', 'recognizers_weights', 'vgg_face', 'vggface_weights.h5')
+
+	if not os.path.exists('./recognizers/recognizers_weights/vgg_face'):
+		os.mkdir('./recognizers/recognizers_weights/vgg_face')	
 
 	if os.path.isfile(weight_location_in_local) != True:
 		print("vgg_face_weights.h5 will be downloaded...")
@@ -71,8 +70,6 @@ def loadModel(url = 'https://drive.google.com/uc?id=1SyW30B17G8AmxKy-_ZO6u-fzB0c
 	#-----------------------------------
 	
 	model.load_weights(weight_location_in_local)
-
-	#-----------------------------------
 
 	vgg_face = Model(inputs=model.layers[0].input, outputs=model.layers[-2].output)
 

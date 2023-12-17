@@ -29,12 +29,14 @@ class SFaceModel:
         return embeddings
 
 
-def loadModel(url = "https://drive.google.com/uc?id=10DHPe1qNJKU0bpDVE5YWH-UWDBbocDau"):  
+def loadModel(url = "https://drive.google.com/uc?id=1JIb5RUFQTn7Ahk5-TxKLYKtwj-tf9-SN"):   
 
-    weight_location_in_local = os.path.join(os.getcwd(), 'weights', 'sface', 'sface_2021dec.onnx')
+	#-----------------------------------
 
-    if not os.path.exists('./weights/sface'):
-        os.mkdir('./weights/sface')	
+    weight_location_in_local = os.path.join(os.getcwd(), 'recognizers', 'recognizers_weights', 'sface', 'sface_2021dec.onnx')
+
+    if not os.path.exists('./recognizers/recognizers_weights/sface'):
+        os.mkdir('./recognizers/recognizers_weights/sface')	
 
     if os.path.isfile(weight_location_in_local) != True:
         print("sface will be downloaded...")

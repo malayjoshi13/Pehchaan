@@ -5,21 +5,28 @@ from tqdm import tqdm
 import os
 import pickle
 from utils import FindInputShape
-from FaceDetector import find_faces
+import FaceDetector
+
+import warnings
+# To ignore all warnings
+warnings.filterwarnings("ignore")
 
 # Create resprentation for each image
 def represent(img_path, face_recog_model_initialised, face_detection_model ='RetinaFace'):
 
-	# decide input shape cooresponding to face recognition model user has selected
-	input_shape_x, input_shape_y = FindInputShape.find_input_shape(face_recog_model_initialised)
+    # decide input shape cooresponding to face recognition model user has selected
+    input_shape_x, input_shape_y = FindInputShape.find_input_shape(face_recog_model_initialised)
 
-	# detect and align
-	img = find_faces(img_path = img_path, face_detection_model = face_detection_model, target_size=(input_shape_y, input_shape_x))
+    # detect and align
+    print("Finding face")
+    result, img = FaceDetector.find_faces(img_path = img_path, face_detection_model = face_detection_model, target_size=(input_shape_x, input_shape_y))
+    print(result)
 
-	# generate represention 
-	embedding = face_recog_model_initialised.predict(img)[0].tolist()
-
-	return embedding
+    # generate represention 
+    print("Creating representation")
+    embedding = face_recog_model_initialised.predict(img)[0].tolist()
+    
+    return embedding
 
 
 # Create a combined representation file for all images of a particular label

@@ -518,18 +518,17 @@ def baseModel(dimension = 128):
 	return model
 
 
-def loadModel(url = 'https://drive.google.com/uc?id=1se_QNuSqM7Nf27GwSWUFzJiMNeNrFeNC'):
-    model = baseModel()
+def loadModel(url = 'https://drive.google.com/uc?id=10z_kGhEMUpNMVuLatOwTJtkkHhJumuRW'): 
 
     #-----------------------------------
 
-    weight_location_in_local = os.path.join(os.getcwd(), 'weights', 'facenet', 'facenet_weights.h5')
+    weight_location_in_local = os.path.join(os.getcwd(), 'recognizers', 'recognizers_weights', 'facenet', 'facenet_weights.h5')
 
-    if not os.path.exists('./weights/facenet'):
-        os.mkdir('./weights/facenet')	
+    if not os.path.exists('./recognizers/recognizers_weights/facenet'):
+        os.mkdir('./recognizers/recognizers_weights/facenet')	
 
     if os.path.isfile(weight_location_in_local) != True:
-        print("vgg_face_weights.h5 will be downloaded...")
+        print("facenet_weights.h5 will be downloaded...")
         gdown.download(url, weight_location_in_local, quiet=False)
 
     #-----------------------------------

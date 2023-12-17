@@ -4,11 +4,11 @@ import os
 import gdown
 
 def build_model():
-    weight1_location_in_local = os.path.join(os.getcwd(), 'models', 'opencvdnn', 'deploy.prototxt')
-    weight2_location_in_local = os.path.join(os.getcwd(), 'models', 'opencvdnn', 'res10_300x300_ssd_iter_140000.caffemodel')   
+    weight1_location_in_local = os.path.join(os.getcwd(), 'detectors', 'detectors_weights', 'opencvdnn', 'deploy.prototxt')
+    weight2_location_in_local = os.path.join(os.getcwd(), 'detectors', 'detectors_weights', 'opencvdnn', 'res10_300x300_ssd_iter_140000.caffemodel')   
     
-    if not os.path.exists('./models/opencvdnn'):
-        os.mkdir('./models/opencvdnn')    
+    if not os.path.exists('./detectors/detectors_weights/opencvdnn'):
+        os.mkdir('./detectors/detectors_weights/opencvdnn')    
 
     if os.path.isfile(weight1_location_in_local) != True:
         try:
@@ -32,7 +32,6 @@ def build_model():
     print(weight2_location_in_local)
     face_detector = cv2.dnn.readNetFromCaffe(weight1_location_in_local, weight2_location_in_local)
     return face_detector
-
 
 
 def detect_face(face_detector, img):

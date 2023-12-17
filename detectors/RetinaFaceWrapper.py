@@ -1,5 +1,5 @@
 from retinaface import RetinaFace
-import utils.face_aligner as face_aligner 
+from utils import face_aligner 
 import cv2
 
 def build_model():

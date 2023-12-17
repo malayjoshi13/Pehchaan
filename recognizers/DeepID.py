@@ -3,7 +3,6 @@ import gdown
 from tensorflow.keras.models import Model
 from tensorflow.keras.layers import Conv2D, Activation, Input, Add, MaxPooling2D, Flatten, Dense, Dropout
 
-#-------------------------------------
 def baseModel():
     myInput = Input(shape=(55, 47, 3))
 
@@ -33,18 +32,16 @@ def baseModel():
 
     return model    
 
-
-
-def loadModel(url = 'https://drive.google.com/uc?id=1nAyht9ErDYN9Hnn6rHUs-azJSZhCO_L6'):
+def loadModel(url = 'https://drive.google.com/uc?id=1iVLpKPC5pv4VrIS_qTccKTxuaydx5nsg'): 
 
 	model = baseModel()
 
 	#-----------------------------------
     
-	weight_location_in_local = os.path.join(os.getcwd(), 'weights', 'deepid', 'deepid_keras_weights.h5')
+	weight_location_in_local = os.path.join(os.getcwd(), 'recognizers', 'recognizers_weights', 'deepid', 'deepid_weight.h5')
 
-	if not os.path.exists('./weights/deepid'):
-		os.mkdir('./weights/deepid')	
+	if not os.path.exists('./recognizers/recognizers_weights/deepid'):
+		os.mkdir('./recognizers/recognizers_weights/deepid')	
 
 	if os.path.isfile(weight_location_in_local) != True:
 		print("deepid_keras_weights.h5 will be downloaded...")

@@ -9,7 +9,6 @@ from tensorflow.keras.layers import Dense, Activation, Lambda, Flatten, BatchNor
 from tensorflow.keras.layers import MaxPooling2D, AveragePooling2D
 from tensorflow.keras import backend as K
 
-
 def baseModel():
     myInput = Input(shape=(96, 96, 3))
     x = ZeroPadding2D(padding=(3, 3), input_shape=(96, 96, 3))(myInput)
@@ -227,15 +226,16 @@ def baseModel():
     return model
     
 
-def loadModel(url = 'https://drive.google.com/uc?id=1Fzmk-OSPjM6WmA9VlbnghltQ2ANOP'):
+def loadModel(url = 'https://drive.google.com/uc?id=12k3fGLAwdyTVVagiqptkJWMbDDZ3tDLq'): 
 
 	model = baseModel()
 
 	#-----------------------------------
-	weight_location_in_local = os.path.join(os.getcwd(), 'weights', 'openface', 'openface_weights.h5')
+	
+	weight_location_in_local = os.path.join(os.getcwd(), 'recognizers', 'recognizers_weights', 'openface', 'openface_weights.h5')
 
-	if not os.path.exists('./weights/openface'):
-		os.mkdir('./weights/openface')	
+	if not os.path.exists('./recognizers/recognizers_weights/openface'):
+		os.mkdir('./recognizers/recognizers_weights/openface')	
 
 	if os.path.isfile(weight_location_in_local) != True:
 		print("openface_weights.h5 will be downloaded...")
