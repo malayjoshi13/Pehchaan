@@ -83,7 +83,11 @@ Weights for the face recognition model get automatically downloaded from my Goog
 
 ## 6) Working on
 
-6.1) Understanding and conducting comparative analysis between algos in `algos.md` file
+6.1) Understanding each algo (like arcface, vggface, etc) in `algos.md` file and conducting comparative analysis between them by run them in different pairs to see which detector-recog pair works the best
+
+also see how fine-tuninng face recog models create better reprsentations
+
+extend to another usecase of locating different positions where a person (missing/thief) was using his/her single image. Thus save time to manually view whole CCTV footage
 
 6.2) adding varying illumination robustness on top of face detection and recognition/identification pipeline by training on NIR images dataset (like https://www4.comp.polyu.edu.hk/~csajaykr/IITD/FaceIR.htm)
  
