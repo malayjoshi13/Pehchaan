@@ -65,9 +65,16 @@ Syntax:- `python SimilarFaceFinder.py target_image_path database_path face_detec
 
 Weights for the face detector model get automatically downloaded from the internet; nothing is required from our end.
 
-4.2) For `face_recognizer_model`:- VGGFace, Facenet, OpenFace, DeepFace, DeepID, ArcFace, SFace
+4.2) For `face_recognizer_model`:- 
+a) VGGFace 
+b) Facenet --> 
+c) OpenFace
+d) DeepFace
+e) DeepID
+f) ArcFace
+g) SFace
 
-Weights for the face recognition model get automatically downloaded from my Google Drive; I have already linked the paths in scripts to my paths in GDrive, you dont need to do anything.
+
 
 ## 5) Use cases
 
