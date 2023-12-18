@@ -84,11 +84,11 @@ b) OpenFace --> https://cmusatyalab.github.io/openface/ | It's an unofficial Pyt
 c) Facenet --> https://github.com/davidsandberg/facenet | It's an unofficial Tensorflow implementation of https://www.cv-foundation.org/openaccess/content_cvpr_2015/app/1A_089.pdf developed at Google and took reference from OpenFace library. <br>
 
 d) DeepFace --> https://github.com/swghosh/DeepFace | It's an unofficial Tensorflow implementation of https://research.facebook.com/publications/deepface-closing-the-gap-to-human-level-performance-in-face-verification/ developed at Meta. <br>
-`Note`: Don't be confused between DeepFace model developed at Meta (mentioned above) and (deepface)[https://github.com/serengil/deepface] library (with wrappers of many face recognition and detection models) developed by Serengil. <br>
+`Note`: Don't be confused between DeepFace model developed at Meta (mentioned above) and [deepface](https://github.com/serengil/deepface) library (with wrappers of many face recognition and detection models) developed by Serengil. <br>
 
 e) DeepID --> https://github.com/kamwoh/face_recognition | It's an unofficial implementation of https://dl.acm.org/doi/10.1109/CVPR.2014.244 (DeepID 1 model). It has more variants like DeepID 2, DeepID 2+, DeepID 3. <br> 
 
-f) ArcFace --> https://github.com/deepinsight/insightface/tree/master/recognition/arcface_torch | Official implementation of https://arxiv.org/abs/1801.07698. The same authors have also developed RetinaFace model, (insightface)[https://github.com/deepinsight/insightface] library for face detection and recognition and a few other models (see here: https://insightface.ai/projects). <br>
+f) ArcFace --> https://github.com/deepinsight/insightface/tree/master/recognition/arcface_torch | Official implementation of https://arxiv.org/abs/1801.07698. The same authors have also developed RetinaFace model, [insightface](https://github.com/deepinsight/insightface) library for face detection and recognition and a few other models (see here: https://insightface.ai/projects). <br>
 
 g) SFace --> https://github.com/opencv/opencv_zoo/tree/main/models/face_recognition_sface (unofficial) and https://github.com/zhongyy/SFace (official) implementations of https://arxiv.org/abs/2205.12010.<br>
 
