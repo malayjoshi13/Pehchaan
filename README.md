@@ -92,6 +92,8 @@ f) ArcFace --> https://github.com/deepinsight/insightface/tree/master/recognitio
 
 g) SFace --> https://github.com/opencv/opencv_zoo/tree/main/models/face_recognition_sface (unofficial) and https://github.com/zhongyy/SFace (official) implementations of https://arxiv.org/abs/2205.12010.<br>
 
+`Please refer to https://arxiv.org/abs/1804.06655 to see the accuracy of different face recognition methods, including those we have used in this project.`
+
 ## 5) Use cases
 
 5.1) auto-tagging individual(s) out of image(s). Developing a database with different folders having images of different peoples. Now we will use this database to auto-tag people in photos like image A has Ram, Shyam and Sita. But how? For suppose this image A enters into Pehchaan, then first face(s) are detected in image A --> then face alignment --> then face embedding --> then comparison with face embeddings of database images using SVM or cosine distance.
