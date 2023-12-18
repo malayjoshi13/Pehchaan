@@ -62,17 +62,17 @@ Syntax:- `python SimilarFaceFinder.py target_image_path database_path face_detec
 ## 4) Models used
 
 4.1) For face detection:- <br>
-a) OpenCVHaar 
+a) OpenCVHaar <br>
 
-b) OpenCVDNN
+b) OpenCVDNN <br>
  
-c) Dlib
+c) Dlib <br>
 
-d) MTCNN
+d) MTCNN <br>
 
-e) RetinaFace --> https://insightface.ai/retinaface | official project page
+e) RetinaFace --> https://insightface.ai/retinaface | official project page <br>
 
-f) MediaPipe
+f) MediaPipe <br>
 
 Weights for the face detector model get automatically downloaded from the internet; nothing is required from our end.
 
@@ -94,35 +94,16 @@ g) SFace --> https://github.com/opencv/opencv_zoo/tree/main/models/face_recognit
 
 `Please refer to https://arxiv.org/abs/1804.06655 to see the accuracy of different face recognition methods, including those we have used in this project.`
 
-## 5) Use cases
+## 5) Working on
 
-5.1) auto-tagging individual(s) out of image(s). Developing a database with different folders having images of different peoples. Now we will use this database to auto-tag people in photos like image A has Ram, Shyam and Sita. But how? For suppose this image A enters into Pehchaan, then first face(s) are detected in image A --> then face alignment --> then face embedding --> then comparison with face embeddings of database images using SVM or cosine distance.
+5.1) Understanding each face detection and recognition model used in this project in `algos.md` file and adding what learned about each of them in Gdrive's folder _Studying > CV. <br>
 
-5.2) tracking shoppers in cashierless shops/stores
+5.2) Conducting comparative analysis between models by running them in different pairs to see which detector-recognition model pair works the best.
 
-5.3) tracking movement of a specific criminal/suspect/individual
+5.3) Analysing how fine-tuning face recognition models creates better representations of faces passed to it.
 
-5.4) smart attendance/check-in/entry in event/office/college/home/school
+5.4) Extend this project to another use case like from given multiple CCTV videos, locating different positions where a person (missing/thief) was present at a particular time using his/her single image. Thus saves time to manually view the whole CCTV footage. Another possible use case is tracking movement of all customers just by their faces within a shopping place to enable the experience of cashier-free shopping experience.
 
-5.5) biometric/phone/system authentication, etc
-
-## 6) Working on
-
-6.1) Understanding each algo (like arcface, vggface, etc) in `algos.md` file and conducting comparative analysis between them by run them in different pairs to see which detector-recog pair works the best
-
-also see how fine-tuninng face recog models create better reprsentations
-
-extend to another usecase of locating different positions where a person (missing/thief) was using his/her single image. Thus save time to manually view whole CCTV footage
-
-6.2) adding varying illumination robustness on top of face detection and recognition/identification pipeline by training on NIR images dataset (like https://www4.comp.polyu.edu.hk/~csajaykr/IITD/FaceIR.htm)
- 
-6.3) adding varying poses and face orientations robustness to existing pipeline by use of face alignment algorithm or by use of GANs for transfering features of posed input face to a straight reference face 
-
-6.4) adding face-occlusion (face mask, veil, etc) robustness to existing pipeline by discriminative learning based on eyes feature vector (like https://scholar.google.co.in/citations?view_op=view_citation&hl=en&user=4crRvSMAAAAJ&citation_for_view=4crRvSMAAAAJ:Tyk-4Ss8FVUC)
-
-6.5) image quality enhancement to make pipeline independent on camera quality (like https://publications.iitm.ac.in/publication/dp-gan-dual-pathway-generative-adversarial-network-for-face, https://scholar.google.co.in/citations?user=AZxz14AAAAAJ&hl=en, https://scholar.google.com/citations?user=JC528xwAAAAJ&hl=en, https://scholar.google.co.in/citations?view_op=view_citation&hl=en&user=JBAv0d0AAAAJ&citation_for_view=JBAv0d0AAAAJ:0EnyYjriUFMC,  https://openaccess.thecvf.com/content/CVPR2022/html/Kim_AdaFace_Quality_Adaptive_Margin_for_Face_Recognition_CVPR_2022_paper.html)
-
-6.6) making pipeline more scalable by performing comparison between feature vectors of input and database images in 1 image : N groups format and not in 1 image : 1 image format. This will save extra time spent by not comparing input image to database images of a particular group whose centroid feature vector is at a very large distance. 
-
+5.5) Adding illumination robustness, varying poses robustness and face-occulsion robustness on top of existing face detection and recognition-based pipeline.
 6.7) restructuring model structure to include required Fully Connected layers which have demonstrated better understanding of minute differences between face features. Also including required cost functions that can help in discriminative learning by increasing difference between non-similar classes.
 
