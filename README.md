@@ -61,18 +61,35 @@ Syntax:- `python SimilarFaceFinder.py target_image_path database_path face_detec
 
 ## 4) Models used
 
-4.1) For `face_detector_model`:- OpenCVHaar, OpenCVDNN, Dlib, MTCNN, RetinaFace, MediaPipe
+4.1) For face detection:- <br>
+a) OpenCVHaar 
+
+b) OpenCVDNN
+ 
+c) Dlib
+
+d) MTCNN
+
+e) RetinaFace --> https://insightface.ai/retinaface | official project page
+
+f) MediaPipe
 
 Weights for the face detector model get automatically downloaded from the internet; nothing is required from our end.
 
 4.2) For face recognition:- <br>
 a) VGGFace --> https://www.robots.ox.ac.uk/~vgg/software/vgg_face/ | Official project page. <br>
+
 b) OpenFace --> https://cmusatyalab.github.io/openface/ | It's an unofficial Pytorch implementation of https://www.cv-foundation.org/openaccess/content_cvpr_2015/app/1A_089.pdf developed at Google. <br>
+
 c) Facenet --> https://github.com/davidsandberg/facenet | It's an unofficial Tensorflow implementation of https://www.cv-foundation.org/openaccess/content_cvpr_2015/app/1A_089.pdf developed at Google and took reference from OpenFace library. <br>
+
 d) DeepFace --> https://github.com/swghosh/DeepFace | It's an unofficial Tensorflow implementation of https://research.facebook.com/publications/deepface-closing-the-gap-to-human-level-performance-in-face-verification/ developed at Meta. <br>
 `Note`: Don't be confused between DeepFace model developed at Meta (mentioned above) and deepface library (with wrappers of many face recognition and detection models) developed by Serengil. <br>
+
 e) DeepID --> https://github.com/kamwoh/face_recognition | It's an unofficial implementation of https://dl.acm.org/doi/10.1109/CVPR.2014.244 (DeepID 1 model). It has more variants like DeepID 2, DeepID 2+, DeepID 3. <br> 
+
 f) ArcFace --> https://github.com/deepinsight/insightface/tree/master/recognition/arcface_torch | Official implementation of https://arxiv.org/abs/1801.07698. The same authors have also developed RetinaFace model, (insightface)[https://github.com/deepinsight/insightface] library for face detection and recognition and a few other models (see here: https://insightface.ai/projects). <br>
+
 g) SFace --> https://github.com/opencv/opencv_zoo/tree/main/models/face_recognition_sface (unofficial) and https://github.com/zhongyy/SFace (official) implementations of https://arxiv.org/abs/2205.12010.<br>
 
 ## 5) Use cases
