@@ -57,4 +57,4 @@ if st.session_state['do_auto_label']:
 
     # user image will be auto-labeled
     result = FaceRecognizer.recognize(img_path = save_user_path, db_path = './database', face_recog_model = face_recognition_model, distance_metric = 'euclidean', face_detection_model = face_detection_model)
-    st.write("Identity of person in input image is:-", result)
+    st.write("Name of person in input image is:-", result)

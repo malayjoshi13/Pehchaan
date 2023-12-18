@@ -2,7 +2,7 @@
 
 # This script is used to find faces in database which are similar to user's input image.
 
-# How to run:
+# How to run as a standalone script:
 # "python SimilarFaceFinder.py ./dataset/kalam/1.jpg ./dataset MTCNN VGGFace euclidean"
 # above "MTCNN" is used as detector and "VGGFace" as recognizer and "euclidean" as distance_metric
 # or 
