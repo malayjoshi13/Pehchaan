@@ -98,7 +98,7 @@ g) SFace --> https://github.com/opencv/opencv_zoo/tree/main/models/face_recognit
 
 5.1) Understanding each face detection and recognition model used in this project in `algos.md` file and adding what learned about each of them in Gdrive's folder _Studying > CV. <br>
 
-5.2) Conducting comparative analysis between models by running them in different pairs to see which detector-recognition model pair works the best.
+5.2) Conducting comparative analysis between models on parameters such as accuracy, precision, and speed by running them in different pairs to see which detector-recognition model pair works the best.
 
 5.3) Analysing how fine-tuning face recognition models creates better representations of faces passed to it.
 
