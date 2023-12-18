@@ -107,3 +107,10 @@ g) SFace --> https://github.com/opencv/opencv_zoo/tree/main/models/face_recognit
 5.5) Adding illumination robustness, varying poses robustness and face-occulsion robustness on top of existing face detection and recognition-based pipeline.
 6.7) restructuring model structure to include required Fully Connected layers which have demonstrated better understanding of minute differences between face features. Also including required cost functions that can help in discriminative learning by increasing difference between non-similar classes.
 
+## 6) References
+
+6.1) PARKHI et al. "DEEP FACE RECOGNITION" --> https://www.robots.ox.ac.uk/~vgg/publications/2015/Parkhi15/parkhi15.pdf <br>
+
+6.2) Masi, Iacopo et al. “Deep Face Recognition: A Survey" --> https://www.semanticscholar.org/paper/Deep-Face-Recognition%3A-A-Survey-Masi-Wu/8de1c724a42d204c0050fe4c4b4e81a675d7f57c  <br>
+
+6.3) Wang, Xinyi et al. “A Survey of Face Recognition” --> https://www.semanticscholar.org/paper/A-Survey-of-Face-Recognition-Wang-Peng/80502a95ab1f83e07febf82c552ae12fcecab00a  <br>
