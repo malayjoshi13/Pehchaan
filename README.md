@@ -61,7 +61,7 @@ Syntax:- `python SimilarFaceFinder.py target_image_path database_path face_detec
 
 ## 4) Models used
 
-4.1) For face detection:- <br>
+4.1) `For face detection`:- <br>
 a) OpenCVHaar --> model wrapper that makes use of OpenCV's CascadeClassifier function and pre-trained Haar cascade models (see here: https://github.com/opencv/opencv/tree/master/data/haarcascades). <br>
 
 b) OpenCVDNN --> model wrapper that makes use of Caffe-based face detector present in the face_detector sub-directory of the [OpenCV DNN module](https://github.com/opencv/opencv/tree/master/samples/dnn/face_detector). <br>
@@ -73,9 +73,9 @@ d) RetinaFace --> model wrapper that makes use of https://insightface.ai/retinaf
 e) MediaPipe --> model wrapper that makes use of the [face detection tool](https://developers.google.com/mediapipe/solutions/vision/face_detector)which is part of Mediapipe developed at Google. <br>
 
 Weights for the face detector model get automatically downloaded from the internet; nothing is required from our end.
-<br><br>
+<br><br><br>
 
-4.2) For face recognition:- <br>
+4.2) `For face recognition`:- <br>
 a) VGGFace --> https://www.robots.ox.ac.uk/~vgg/software/vgg_face/ | Official project page. <br>
 
 b) OpenFace --> https://cmusatyalab.github.io/openface/ | It's an unofficial Pytorch implementation of https://www.cv-foundation.org/openaccess/content_cvpr_2015/app/1A_089.pdf developed at Google. <br>
