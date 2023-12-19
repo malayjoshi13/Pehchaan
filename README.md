@@ -21,31 +21,14 @@ pip install -r requirements.txt
 streamlit run Home.py
 ```
 
-## 3) Features
+## Features
 
-## 3.1) FaceRecognizer:-
-**Application**: identifying the name of a person whose image is fed as an input using images in the database (i.e. `dataset` folder). 
+1) **Create a database of reference images of people** you strongly believe could be in the pile of photographs you'll be auto-labeling. Not able to think of all possible people in starting itself? Not an issue, keep adding reference images as you keep remembering. At the back, the pipeline will keep creating required representations every time you add any new image of a particular person to be used for face matching during the auto-labeling process later.
 
-**Syntax**: `python FaceRecognizer.py target_image_path database_path face_detector_model face_recognizer_model distance_metric`
+2) **Auto-label pile of photographs/pictures** you have by just passing one photograph at a time and getting the names of all people in that photograph.
 
-**Under the hood**: `FaceRecognizer` algorithm applies the `SimilarFaceFinder` algorithm in 1:N format on the input image and each image of the database to find all database images which are similar to the input image. After this, the `FaceRecognizer` algorithm selects the most common/repetitive/famous label out of labels of these matched/found database images. This selected label is considered to be the identity of the input image. 
+## Architecture
 
-**Ex 1**: `python FaceRecognizer.py ./dataset/kalam/1.jpg ./dataset MTCNN VGGFace euclidean` --> here "MTCNN" is used as face detector and "VGGFace" as face recognizer and "euclidean" as distance_metric
-
-**Ex 2**: `python FaceRecognizer.py ./dataset/kalam/1.jpg ./dataset` --> here by default, "RetinaFace" is used as face detector, "ArcFace" as face recognizer and "euclidean" as the distance metric
-
-```Note: Rather than fine-tuning the pre-trained face recognition models, I choose to calculate the distance between feature vectors of input image and images in database. This is because having a small database in this use-case, fine-tuning didn't give the expected results (shown by results between two approaches below).```
-
-## 3.2) SimilarFaceFinder:-
-**Application**: finding all database images which look similar to the face in the input image.
-
-**Under the hood**: `SimilarFaceFinder` algorithm applies the `FaceVerifier` algorithm in 1:N format between the input image and each database image to find the database image and input image having a distance (between their corresponding feature vectors) less than the threshold value. Whichever database image satisfies this condition is considered similar to the input image.
-
-Syntax:- `python SimilarFaceFinder.py target_image_path database_path face_detector_model face_recognizer_model distance_metric`
-
-**Ex 1**: `python SimilarFaceFinder.py ./dataset/kalam/1.jpg ./dataset MTCNN VGGFace euclidean` --> here "MTCNN" is used as face detector and "VGGFace" as face recognizer and "euclidean" as distance_metric
-
-**Ex 2**: `python SimilarFaceFinder.py ./dataset/kalam/1.jpg ./dataset` --> here by default, "RetinaFace" is used as face detector, "ArcFace" as face recognizer and "euclidean" as distance metric
 
 ## Models used
 
@@ -85,7 +68,7 @@ g) SFace --> https://github.com/opencv/opencv_zoo/tree/main/models/face_recognit
 
 ## Working on
 
-1) Understanding each face detection and recognition model used in this project in `algos.md` file and adding what learned about each of them in Gdrive's folder _Studying > CV. <br>
+1) Understanding each face detection and recognition model used in this project and adding what learned about each of them in Gdrive's folder _Studying > CV. <br>
 
 2) Conducting comparative analysis between models on parameters such as accuracy, precision, and speed by running them in different pairs to see which detector-recognition model pair works the best. ([useful resource](https://towardsdatascience.com/face-detection-models-which-to-use-and-why-d263e82c302c))
 
@@ -104,7 +87,7 @@ g) SFace --> https://github.com/opencv/opencv_zoo/tree/main/models/face_recognit
 6.3) Wang, Xinyi et al. “A Survey of Face Recognition” --> https://www.semanticscholar.org/paper/A-Survey-of-Face-Recognition-Wang-Peng/80502a95ab1f83e07febf82c552ae12fcecab00a  <br>
 
 ## End-note
-Thank you for patiently reading till here. I am pretty sure just like me, you would have also learnt something new about developing a Streamlit-based application using models hosted on HuggingFace, then dockerizing the application and deploying it to cloud platform. Using these learnt concepts, I will push myself to explore more practical deployment techniques, tools and concepts to scale this repo further. I encourage you also to do the same!!
+Thank you for patiently reading till here. I am pretty sure just like me, you would have also learned something new about developing different types of face detection and recognition models and a practical use case of an auto-labeling tool using these models. Using these learned concepts, I will push myself to continue improving this tool. I encourage you also to pick the tasks I have stated above to improve this tool!!
 
 ## Contributing
 You are welcome to contribute to the repository with your PRs. In case of query or feedback, please write to me at 13.malayjoshi@gmail.com or https://www.linkedin.com/in/malayjoshi13/.
