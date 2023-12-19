@@ -1,6 +1,6 @@
 # Pehchaan
 
-One-shot labeling tool to identify the name of the person present in an image. <br>
+Pehchaan is a one-shot labeling tool to identify the name of the person present in an image. <br>
 
 A potential use case around which I have started to work on this project is to automate the process of labeling the people present in pictures and photographs having immense significance. In the absence of such an automated process, it's a very time-consuming and labor-intensive task to manually label people present in a large stock of photographs at digital libraries across India as well as the globe. Without these labels, these significant documents are mere pieces of memory/space-consuming items, nothing more. <br>
 
@@ -8,7 +8,7 @@ Broadly, this tool makes use of pre-trained Face detection (for finding face out
 
 This work is representative of work done as part of my internship at DESIDOC-DRDO (New Delhi, India) and has no direct association with the full work done during the internship period. 
 
-## 1) Getting started
+## Getting started
 ```
 git clone https://github.com/malayjoshi13/Pehchaan.git
 
@@ -47,9 +47,10 @@ Syntax:- `python SimilarFaceFinder.py target_image_path database_path face_detec
 
 **Ex 2**: `python SimilarFaceFinder.py ./dataset/kalam/1.jpg ./dataset` --> here by default, "RetinaFace" is used as face detector, "ArcFace" as face recognizer and "euclidean" as distance metric
 
-## 4) Models used
+## Models used
 
-4.1) `For face detection`:- <br>
+1) `For face detection`:- <br>
+
 a) OpenCVHaar --> model wrapper that makes use of OpenCV's CascadeClassifier function and pre-trained Haar cascade models (see here: https://github.com/opencv/opencv/tree/master/data/haarcascades). <br>
 
 b) OpenCVDNN --> model wrapper that makes use of Caffe-based face detector present in the face_detector sub-directory of the [OpenCV DNN module](https://github.com/opencv/opencv/tree/master/samples/dnn/face_detector). <br>
@@ -63,7 +64,8 @@ e) MediaPipe --> model wrapper that makes use of the [face detection tool](https
 Weights for the face detector model get automatically downloaded from the internet; nothing is required from our end.
 <br><br><br>
 
-4.2) `For face recognition`:- <br>
+2) `For face recognition`:- <br>
+
 a) VGGFace --> https://www.robots.ox.ac.uk/~vgg/software/vgg_face/ | Official project page. <br>
 
 b) OpenFace --> https://cmusatyalab.github.io/openface/ | It's an unofficial Pytorch implementation of https://www.cv-foundation.org/openaccess/content_cvpr_2015/app/1A_089.pdf developed at Google. <br>
@@ -81,23 +83,28 @@ g) SFace --> https://github.com/opencv/opencv_zoo/tree/main/models/face_recognit
 
 `Please refer to https://arxiv.org/abs/1804.06655 to see the accuracy of different face recognition methods, including those we have used in this project.`
 
-## 5) Working on
+## Working on
 
-5.1) Understanding each face detection and recognition model used in this project in `algos.md` file and adding what learned about each of them in Gdrive's folder _Studying > CV. <br>
+1) Understanding each face detection and recognition model used in this project in `algos.md` file and adding what learned about each of them in Gdrive's folder _Studying > CV. <br>
 
-5.2) Conducting comparative analysis between models on parameters such as accuracy, precision, and speed by running them in different pairs to see which detector-recognition model pair works the best. ([useful resource](https://towardsdatascience.com/face-detection-models-which-to-use-and-why-d263e82c302c))
+2) Conducting comparative analysis between models on parameters such as accuracy, precision, and speed by running them in different pairs to see which detector-recognition model pair works the best. ([useful resource](https://towardsdatascience.com/face-detection-models-which-to-use-and-why-d263e82c302c))
 
-5.3) Analysing how fine-tuning face recognition models creates better representations of faces passed to it. This could potentially take the existing closed-data auto-labeling capability to open-data auto-labeling, where the chances of this tool labeling an image whose reference image is not there in the database, to be "Unknown" will be higher than existing scenario.
+3) Analysing how fine-tuning face recognition models creates better representations of faces passed to it. This could potentially take the existing closed-data auto-labeling capability to open-data auto-labeling, where the chances of this tool labeling an image whose reference image is not there in the database, to be "Unknown" will be higher than existing scenario.
 
-5.4) Extend this project to another use case like from given multiple CCTV videos, locating different positions where a person (missing/thief) was present at a particular time using his/her single image. Thus saves time to manually view the whole CCTV footage. Another possible use case is tracking movement of all customers just by their faces within a shopping place to enable the experience of cashier-free shopping experience.
+4) Extend this project to another use case like from given multiple CCTV videos, locating different positions where a person (missing/thief) was present at a particular time using his/her single image. Thus saves time to manually view the whole CCTV footage. Another possible use case is tracking movement of all customers just by their faces within a shopping place to enable the experience of cashier-free shopping experience.
 
-5.5) Adding illumination robustness, varying poses robustness and face-occulsion robustness on top of existing face detection and recognition-based pipeline.
-6.7) restructuring model structure to include required Fully Connected layers which have demonstrated better understanding of minute differences between face features. Also including required cost functions that can help in discriminative learning by increasing difference between non-similar classes.
+5) Adding illumination robustness, varying poses robustness and face-occulsion robustness on top of existing face detection and recognition-based pipeline.
 
-## 6) References
+## References
 
 6.1) PARKHI et al. "DEEP FACE RECOGNITION" --> https://www.robots.ox.ac.uk/~vgg/publications/2015/Parkhi15/parkhi15.pdf <br>
 
 6.2) Masi, Iacopo et al. “Deep Face Recognition: A Survey" --> https://www.semanticscholar.org/paper/Deep-Face-Recognition%3A-A-Survey-Masi-Wu/8de1c724a42d204c0050fe4c4b4e81a675d7f57c  <br>
 
 6.3) Wang, Xinyi et al. “A Survey of Face Recognition” --> https://www.semanticscholar.org/paper/A-Survey-of-Face-Recognition-Wang-Peng/80502a95ab1f83e07febf82c552ae12fcecab00a  <br>
+
+## End-note
+Thank you for patiently reading till here. I am pretty sure just like me, you would have also learnt something new about developing a Streamlit-based application using models hosted on HuggingFace, then dockerizing the application and deploying it to cloud platform. Using these learnt concepts, I will push myself to explore more practical deployment techniques, tools and concepts to scale this repo further. I encourage you also to do the same!!
+
+## Contributing
+You are welcome to contribute to the repository with your PRs. In case of query or feedback, please write to me at 13.malayjoshi@gmail.com or https://www.linkedin.com/in/malayjoshi13/.
