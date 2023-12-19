@@ -4,9 +4,9 @@ Pehchaan is a one-shot labeling tool to identify the name of the person present 
 
 A potential use case around which I have started to work on this project is to automate the process of labeling the people present in pictures and photographs having immense significance. In the absence of such an automated process, it's a very time-consuming and labor-intensive task to manually label people present in a large stock of photographs at digital libraries across India as well as the globe. Without these labels, these significant documents are mere pieces of memory/space-consuming items, nothing more. <br>
 
-https://github.com/malayjoshi13/Pehchaan/assets/71775151/6afde205-2e3f-4c4b-8330-42242434591b <br>
+https://github.com/malayjoshi13/Pehchaan/assets/71775151/6afde205-2e3f-4c4b-8330-42242434591b 
 
-https://github.com/malayjoshi13/Pehchaan/assets/71775151/db5d92ed-1408-4029-bb41-26e4d1712886 <br>
+https://github.com/malayjoshi13/Pehchaan/assets/71775151/db5d92ed-1408-4029-bb41-26e4d1712886 
 
 Broadly, this tool makes use of pre-trained Face detection (for finding face out of a full image), Face alignment, and Face recognition (for generating discriminating feature vectors for each passed face image) models and algorithms to keep checking if the database (collection of reference images to perform feature matching algorithm) is modified and doing one-to-one matching between feature representation of image input by user and image(s) in database. <br>
 
