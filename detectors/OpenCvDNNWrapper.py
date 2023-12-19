@@ -12,7 +12,7 @@ def build_model():
 
     if os.path.isfile(weight1_location_in_local) != True:
         try:
-            url = 'https://raw.githubusercontent.com/mayank8200/Real-Time-Face-Detection/master/deploy.prototxt.txt'
+            url = 'https://raw.githubusercontent.com/mayank8200/Real-Time-Face-Detection/master/deploy.prototxt.txt' # the network definition
             print("deploy.prototxt will be downloaded from the url "+url)
             gdown.download(url, weight1_location_in_local, quiet=False)
         except:
@@ -21,7 +21,7 @@ def build_model():
     
     if os.path.isfile(weight2_location_in_local) != True:
         try:
-            url = 'https://raw.githubusercontent.com/mayank8200/Real-Time-Face-Detection/master/res10_300x300_ssd_iter_140000.caffemodel'
+            url = 'https://raw.githubusercontent.com/mayank8200/Real-Time-Face-Detection/master/res10_300x300_ssd_iter_140000.caffemodel' # the learned weights
             print("deploy.prototxt will be downloaded from the url "+url)
             gdown.download(url, weight2_location_in_local, quiet=False)
         except:

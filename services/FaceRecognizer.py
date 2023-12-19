@@ -47,6 +47,10 @@ def recognize(img_path, db_path, face_recog_model ='ArcFace', distance_metric = 
 
     print(label_list)
     final_label = most_frequent(label_list)
+    
+    if final_label=="":
+        final_label = "unknown"
+
     return final_label
 
 # # Main driver
