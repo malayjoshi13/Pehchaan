@@ -73,7 +73,7 @@ g) SFace --> https://github.com/opencv/opencv_zoo/tree/main/models/face_recognit
 
 ## Working on
 
-1) Understanding each face detection and recognition model used in this project and adding what learned about each of them in Gdrive's folder _Studying > CV. <br>
+1) Understanding each face detection model, recognition model, and distance metric (like cosine, euclidean, euclidean_l2 [useful resource](https://medium.com/@kunal_gohrani/different-types-of-distance-metrics-used-in-machine-learning-e9928c5e26c7)) used in this project and adding what learned about each of them in Gdrive's folder _Studying > CV. <br>
 
 2) Conducting comparative analysis between models on parameters such as accuracy, precision, and speed by running them in different pairs to see which detector-recognition model pair works the best. ([useful resource](https://towardsdatascience.com/face-detection-models-which-to-use-and-why-d263e82c302c))
 
