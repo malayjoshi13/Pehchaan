@@ -1,10 +1,14 @@
 # Pehchaan
-Face detection and recognition using pre-trained Deep and Shallow architecture models.
 
-Face detection → Finding face out of a full image
-Face recognition → Tell name of face in a given image
+One-shot labeling tool to identify the name of the person present in an image. <br>
 
-## 1) Setting up work environment
+A potential use case around which I have started to work on this project is to automate the process of labeling the people present in pictures and photographs having immense significance. In the absence of such an automated process, it's a very time-consuming and labor-intensive task to manually label people present in a large stock of photographs at digital libraries across India as well as the globe. Without these labels, these significant documents are mere pieces of memory/space-consuming items, nothing more. <br>
+
+Broadly, this tool makes use of pre-trained Face detection (for finding face out of a full image), Face alignment, and Face recognition (for generating discriminating feature vectors for each passed face image) models and algorithms to keep checking if the database (collection of reference images to perform feature matching algorithm) is modified and doing one-to-one matching between feature representation of image input by user and image(s) in database. <br>
+
+This work is representative of work done as part of my internship at DESIDOC-DRDO (New Delhi, India) and has no direct association with the full work done during the internship period. 
+
+## 1) Getting started
 ```
 git clone https://github.com/malayjoshi13/Pehchaan.git
 
@@ -13,25 +17,9 @@ conda create -n pehchaan
 conda activate pehchaan
 
 pip install -r requirements.txt
-```
-  
-## 2) Directory structure
 
-After cloning this GitHub repository, set the database inside the `dataset` folder by taking reference of the following folder directory structure:
+streamlit run Home.py
 ```
-Pehchaan
-├── dataset folder
-│   ├── Name of Person1
-│   │   ├── First image of Person1
-│   │   ├── First image of Person1
-│   ├── Name of Person2
-│   │   ├── First image of Person2
-.   .   .
-.   .   .
-.   .   .
-.   .   .
-```
-Note: You can add/delete images in the database anytime, the representation files will be made automatically for the `FaceRecognizer` functionality
 
 ## 3) Features
 
@@ -99,7 +87,7 @@ g) SFace --> https://github.com/opencv/opencv_zoo/tree/main/models/face_recognit
 
 5.2) Conducting comparative analysis between models on parameters such as accuracy, precision, and speed by running them in different pairs to see which detector-recognition model pair works the best. ([useful resource](https://towardsdatascience.com/face-detection-models-which-to-use-and-why-d263e82c302c))
 
-5.3) Analysing how fine-tuning face recognition models creates better representations of faces passed to it.
+5.3) Analysing how fine-tuning face recognition models creates better representations of faces passed to it. This could potentially take the existing closed-data auto-labeling capability to open-data auto-labeling, where the chances of this tool labeling an image whose reference image is not there in the database, to be "Unknown" will be higher than existing scenario.
 
 5.4) Extend this project to another use case like from given multiple CCTV videos, locating different positions where a person (missing/thief) was present at a particular time using his/her single image. Thus saves time to manually view the whole CCTV footage. Another possible use case is tracking movement of all customers just by their faces within a shopping place to enable the experience of cashier-free shopping experience.
 
