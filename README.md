@@ -10,6 +10,8 @@ https://github.com/malayjoshi13/Pehchaan/assets/71775151/db5d92ed-1408-4029-bb41
 
 Broadly, this tool makes use of pre-trained Face detection (for finding face out of a full image), Face alignment, and Face recognition (for generating discriminating feature vectors for each passed face image) models and algorithms to keep checking if the database (collection of reference images to perform feature matching algorithm) is modified and doing one-to-one matching between feature representation of image input by user and image(s) in database. <br>
 
+In addition to the approach we have used in this project of `face recognition by feature vectors matching` of user image and database/reference images, there is another approach of `face recognition by classification` which could be used. I have not used it as it needs all classes of persons at first place only for training in a classification setting. This doesn't align with our use-case where classes are not fixed and can be extended as per the need of labeling task.  
+
 This work is representative of work done as part of my internship at DESIDOC-DRDO (New Delhi, India) and has no direct association with the full work done during the internship period. 
 
 ## Getting started
@@ -70,6 +72,8 @@ f) ArcFace --> https://github.com/deepinsight/insightface/tree/master/recognitio
 g) SFace --> https://github.com/opencv/opencv_zoo/tree/main/models/face_recognition_sface (unofficial) and https://github.com/zhongyy/SFace (official) implementations of https://arxiv.org/abs/2205.12010.<br>
 
 `Please refer to https://arxiv.org/abs/1804.06655 to see the accuracy of different face recognition methods, including those we have used in this project.`
+
+`Also please look into the work "Siamese Neural Networks for One-shot Image Recognition" [paper](https://www.cs.cmu.edu/~rsalakhu/papers/oneshot1.pdf) and [reference video](https://www.youtube.com/playlist?list=PLgNJO2hghbmhHuhURAGbe6KWpiYZt0AMH). This Siamese network is used to develop a face recognition model called DeepFace. Also, the training of Siamese networks with comparative loss functions resulted in better performance, later leading to the triplet loss function used in the FaceNet system by Google.`
 
 ## Working on
 
