@@ -68,11 +68,12 @@ b) OpenCVDNN --> model wrapper that makes use of Caffe-based face detector prese
  
 c) MTCNN --> model wrapper that makes use of unofficial [tensorflow implementation](https://github.com/ipazc/mtcnn) of https://ieeexplore.ieee.org/document/7553523 work done by K. Zhang, Z. Zhang, Z. Li and Y. Qiao. <br>
 
-d) RetinaFace --> https://insightface.ai/retinaface | official project page. <br>
+d) RetinaFace --> model wrapper that makes use of https://insightface.ai/retinaface | official project page. <br>
 
 e) MediaPipe --> model wrapper that makes use of the [face detection tool](https://developers.google.com/mediapipe/solutions/vision/face_detector)which is part of Mediapipe developed at Google. <br>
 
 Weights for the face detector model get automatically downloaded from the internet; nothing is required from our end.
+<br><br>
 
 4.2) For face recognition:- <br>
 a) VGGFace --> https://www.robots.ox.ac.uk/~vgg/software/vgg_face/ | Official project page. <br>
