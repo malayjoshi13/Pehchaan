@@ -31,8 +31,9 @@ streamlit run Home.py
 
 2) **Auto-label pile of photographs/pictures** you have by just passing one photograph at a time and getting the names of all people in that photograph.
 
-## Architecture
+## Flow-diagram
 
+![flowdiag](https://github.com/malayjoshi13/Pehchaan/assets/71775151/83be2ace-9227-44f8-9890-fe2552e6c9f7)
 
 ## Models used
 
